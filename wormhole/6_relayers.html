@@ -1,0 +1,239 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js ayu">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Relayers - Wormhole xDapp Development Book v0.1.0</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../introduction/introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Overview</li><li class="chapter-item expanded "><a href="../dapps/0_xdappOverview.html"><strong aria-hidden="true">1.</strong> xDapps</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dapps/1_defiBasics.html"><strong aria-hidden="true">1.1.</strong> Dapp Ecosystem Basics</a></li><li class="chapter-item expanded "><a href="../dapps/2_crossChainInteroperability.html"><strong aria-hidden="true">1.2.</strong> Cross-Chain Interoperability</a></li><li class="chapter-item expanded "><a href="../dapps/3_xdataxassets.html"><strong aria-hidden="true">1.3.</strong> xData &amp; xAssets</a></li><li class="chapter-item expanded "><a href="../dapps/4_whatIsanXdapp.html"><strong aria-hidden="true">1.4.</strong> What is an xDapp?</a></li><li class="chapter-item expanded "><a href="../dapps/5_advantages.html"><strong aria-hidden="true">1.5.</strong> Advantages of xDapps</a></li></ol></li><li class="chapter-item expanded "><a href="../wormhole/0_wormholeOverview.html"><strong aria-hidden="true">2.</strong> Wormhole</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../wormhole/1_whatIsWormhole.html"><strong aria-hidden="true">2.1.</strong> What is Wormhole?</a></li><li class="chapter-item expanded "><a href="../wormhole/2_architectureOverview.html"><strong aria-hidden="true">2.2.</strong> Architecture Overview</a></li><li class="chapter-item expanded "><a href="../wormhole/3_coreLayerContracts.html"><strong aria-hidden="true">2.3.</strong> Core Layer Contracts</a></li><li class="chapter-item expanded "><a href="../wormhole/4_vaa.html"><strong aria-hidden="true">2.4.</strong> VAA: Verified Action Approval</a></li><li class="chapter-item expanded "><a href="../wormhole/5_guardianNetwork.html"><strong aria-hidden="true">2.5.</strong> Guardian Network</a></li><li class="chapter-item expanded "><a href="../wormhole/6_relayers.html" class="active"><strong aria-hidden="true">2.6.</strong> Relayers</a></li><li class="chapter-item expanded "><a href="../wormhole/7_portalTokenBridge.html"><strong aria-hidden="true">2.7.</strong> Portal xAsset Bridge</a></li><li class="chapter-item expanded "><a href="../wormhole/8_wormchain.html"><strong aria-hidden="true">2.8.</strong> Wormchain</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">xDapp Architecture</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> xDapp Design</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Key Considerations</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Ecosystems</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.1.</strong> EVM</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.2.</strong> Solana</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.3.</strong> Cosmos</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.4.</strong> Algorand</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.3.</strong> Protocol-First Design</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.</strong> Topology</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.1.</strong> Hub &amp; Spoke</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.2.</strong> Mesh</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.5.</strong> xAssets</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.6.</strong> Relayers</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.6.1.</strong> Generic Relayers</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.6.2.</strong> Protocol-Specific Relayers</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.7.</strong> Security</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.7.1.</strong> Trust Assumptions</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.7.2.</strong> Layer 1 Risk</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.7.3.</strong> Finality Guarantees</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.8.</strong> Examples</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.8.1.</strong> Cross-Chain Dex</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.8.2.</strong> Remote Staking</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.9.</strong> Common Use Cases</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">xDapp Development</li><li class="chapter-item expanded "><a href="../development/overview.html"><strong aria-hidden="true">4.</strong> Before You Start</a></li><li class="chapter-item expanded "><a href="../development/wormhole-local-validator.html"><strong aria-hidden="true">5.</strong> Wormhole Local Validator</a></li><li class="chapter-item expanded "><a href="../development/tilt/overview.html"><strong aria-hidden="true">6.</strong> Tilt Installation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../development/tilt/mac.html"><strong aria-hidden="true">6.1.</strong> MacOS</a></li><li class="chapter-item expanded "><a href="../development/tilt/linux.html"><strong aria-hidden="true">6.2.</strong> Linux</a></li><li class="chapter-item expanded "><a href="../development/tilt/constants.html"><strong aria-hidden="true">6.3.</strong> Constants</a></li></ol></li><li class="chapter-item expanded "><a href="../development/scaffold/overview.html"><strong aria-hidden="true">7.</strong> Project Scaffold</a></li><li class="chapter-item expanded "><a href="../development/messages/sending/overview.html"><strong aria-hidden="true">8.</strong> Sending Messages</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../development/messages/sending/evm.html"><strong aria-hidden="true">8.1.</strong> EVM</a></li></ol></li><li class="chapter-item expanded "><a href="../development/messages/registration/overview.html"><strong aria-hidden="true">9.</strong> Registering xDapps</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../development/messages/registration/evm.html"><strong aria-hidden="true">9.1.</strong> EVM</a></li></ol></li><li class="chapter-item expanded "><a href="../development/messages/relaying/overview.html"><strong aria-hidden="true">10.</strong> Relaying Messages</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">10.1.</strong> Manual Relays</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.2.</strong> REST &amp; Spy Relayer</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.3.</strong> Generic Relayers</div></li></ol></li><li class="chapter-item expanded "><a href="../development/messages/receiving/overview.html"><strong aria-hidden="true">11.</strong> Receving Messages</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../development/messages/receiving/evm.html"><strong aria-hidden="true">11.1.</strong> EVM</a></li></ol></li><li class="chapter-item expanded "><a href="../projects/summary.html"><strong aria-hidden="true">12.</strong> Projects</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../projects/evm-messenger/overview.html"><strong aria-hidden="true">12.1.</strong> EVM Messenger</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../projects/evm-messenger/messenger.html"><strong aria-hidden="true">12.1.1.</strong> Solidity</a></li><li class="chapter-item expanded "><a href="../projects/evm-messenger/client.html"><strong aria-hidden="true">12.1.2.</strong> JS Client</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><li class="part-title">Portal Token Bridge</li><li class="chapter-item expanded "><a href="../development/portal/overview.html"><strong aria-hidden="true">13.</strong> Portal</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">13.1.</strong> EVM</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../development/portal/evm/attestingToken.html"><strong aria-hidden="true">13.1.1.</strong> Attesting</a></li><li class="chapter-item expanded "><a href="../development/portal/evm/tokenTransfer.html"><strong aria-hidden="true">13.1.2.</strong> Transfer Tokens</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">13.2.</strong> Portal JS Client Transfers</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">13.2.1.</strong> EVM to Solana Transfer</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">13.2.2.</strong> Polygon to Oasis with Relayers</div></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">14.</strong> Portal Payloads</div></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Other Resources</li><li class="chapter-item expanded "><div><strong aria-hidden="true">15.</strong> Reference</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../reference/tools.html"><strong aria-hidden="true">15.1.</strong> Tools</a></li><li class="chapter-item expanded "><a href="../reference/github.html"><strong aria-hidden="true">15.2.</strong> Github &amp; Useful Links</a></li><li class="chapter-item expanded "><a href="../reference/contracts.html"><strong aria-hidden="true">15.3.</strong> Deployed Contracts</a></li><li class="chapter-item expanded "><a href="../reference/rpcnodes.html"><strong aria-hidden="true">15.4.</strong> RPC Nodes</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Wormhole xDapp Development Book v0.1.0</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/certusone/xdapp-book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="relayers"><a class="header" href="#relayers">Relayers</a></h1>
+<p>Relayers are a major part of the Wormhole Ecosystem. Where the Guardian Network is effectively the 'read' portion of interoperability, relayers are the 'write'.</p>
+<p>The first thing of note is that unlike other interoperability protocols, Wormhole <strong>does not have a required relaying methodology</strong>.</p>
+<p>In most designs there is a dedicated relaying mechanism which operates inside the protocol's trust boundaries. This means that the relayer either has an adversarial relationship to the oracle, or the relayer has trust assumptions and contributes to the protocol's security model. Thus, relayers are usually a trusted party, are often also privileged, and you are forced to use the relayer model which is built into the protocol.</p>
+<p>In Wormhole, relayers are neither trusted nor privileged. This means relayers <strong>cannot jeopardize security, only liveness</strong>. Because Wormhole is designed to have a firm trust boundary at the level of the VAA, relayers have exactly the same capabilities as any regular, untrusted blockchain user.</p>
+<p>From this perspective, relayers are just dumb delivery trucks which deliver VAAs to their destination, and have no capacity to potentially tamper with the delivery outcome. VAAs either get delivered, or don't, which makes relayers analagous to the off-chain 'crank turners' of traditional Dapps.</p>
+<p>As a result of this design, Wormhole is able to fascilitate a variety of heterogenous relaying mechanisms, and the developer is able to choose whatever best suit their needs.</p>
+<p>The definition of a <em>Relayer</em> in the context of Wormhole is:</p>
+<pre><code>Any process which delivers VAAs to a destination
+</code></pre>
+<p>Next, we'll go over a few of the most common relaying strategies.</p>
+<h2 id="client-side-relaying"><a class="header" href="#client-side-relaying">Client-side Relaying</a></h2>
+<p>Client side relaying is kind of a good tutorial case, as it's relatively straight forward.</p>
+<p>All simple processes on Wormhole essentially boil down to a three step process:</p>
+<pre><code>1. Perform some action on chain A.
+2. Retrieve the resulting VAA from the Guardian Network.
+3. Perform some action on chain B using the VAA.
+</code></pre>
+<p>Considering that the first step of this process is almost always initiated from a user-facing frontend such as a webpage or a wallet, it is possible to also perform steps 2 and 3 in the frontend as well. This is referred to as 'client-side relaying', and it has two major benefits:</p>
+<ul>
+<li>Low cost. Users pay exactly the transaction fee for the second transaction.</li>
+<li>No backend relaying infrastructure.</li>
+</ul>
+<p>For this reason, client-side relaying can be a tempting avenue to pursue, especially if you're just interested in getting an MVP running. However, client-side relaying has two notable drawbacks:</p>
+<ul>
+<li>Users must sign all transactions required with their own wallet</li>
+<li>Users must have funds to pay the transaction fees on every chain involved.</li>
+</ul>
+<p>Overall, client-side relaying is a simple solution, but can make the user experience cumbersome. Thus, it's generally not recommended if your goal is a highly-polished user experience.</p>
+<h2 id="specialized-relayers"><a class="header" href="#specialized-relayers">Specialized Relayers</a></h2>
+<p>Specialized Relayers solve the UX problems of client-side relayers by adding a backend component which can handle steps 2 and 3 on behalf of the user.</p>
+<p>In this model, relayers either listen directly to the Guardian Network via a spy (This is called <strong>Spy Relaying</strong>), or will simply provide a REST endpoint to accept a VAA which should be relayed (called <strong>REST Relaying</strong>). Once a relayer has the VAA, it simply performs any necessary off-chain calculations, and submits the VAA to the required destination.</p>
+<p>An important consideration when developing a specialized relayer is that the relayer is still considered untrusted. VAAs are totally public, and can be submitted by anyone, so the off-chain relayer should not do any computation which is considered &quot;trusted&quot;. However, doing things like deterministic data transforms, waiting for gas prices to drop, or various forms of 'batching' can be very useful cost-reduction strategies which do not impact security.</p>
+<p>Specialized Relayers have the following advantages:</p>
+<pre><code>- Simplify user experience
+- Allow off-chain calculations to be performed in the relayer, reducing gas costs.
+- Generally easy to develop
+</code></pre>
+<p>However, they also have a couple notable downsides</p>
+<pre><code>- Adds a backend relaying component which is responsible for liveness
+- Complicates fee-modeling, as relayers are responsible for paying target chain fees.
+</code></pre>
+<p>Because relayers are responsible for liveness, they become another dependency component for the xDapp. If the relayers are all down, your application has an outage, similarly to how other dependencies such as the frontend, blockchain nodes, blockchains, third party APIs, etc, also can cause outages.</p>
+<p>To mitigate this, many relayers can be run in order to provide redundancy. It's also possible to design specialized relaying solutions which are entirely decentralized, such that there are a network of relayers which run based off economic incentives. However, creating a robust model for decentralized relaying is generally application-specific and somewhat complex.</p>
+<p>Due to specialized relayers being such a common solution,there is a reference implementation provided in the main Wormhole repository, which stands up the infrastructure needed to provide both a Spy and REST interface, and to interact with each blockchain in the ecosystem. If you plan to develop a specialized relayer, consider starting from the reference implementation, and add modifications as needed.</p>
+<h1 id="generic-relayers"><a class="header" href="#generic-relayers">Generic Relayers</a></h1>
+<p><em>Note: this feature is not yet available in mainnet</em></p>
+<p>Because relaying is such an integral component to xDapps, Wormhole has built a protocol which allows developers to utilize a decentralized network of untrusted relayers to deliver their messages, removing the specialized relayer as an infrastructure responsibility.</p>
+<p>In order to utilize the generic relayer network, developers must request delivery from the Wormhole Relay Ecosystem Contract, and must also implement a &quot;receiveRelay&quot; function in their contracts, which will be called by the relayer. Once a delivery has been requested, the VAA is guaranteed to be delivered within a certain timeframe. The specifics of this vary by blockchain and smart contract runtime.</p>
+<p>Generic relayers have the following benefits:</p>
+<pre><code>- Simplified UX
+- No relayer infrastructure requirements for the developer
+</code></pre>
+<p>Along with the following potential downsides:</p>
+<pre><code>- Require all calculations to be done on-chain
+- Less gas efficiency
+- May not be supported on all chains
+</code></pre>
+<hr />
+<p>That's the main overview of how xData is emitted, verified, and delivered across the Wormhole ecosystem. In the next section we'll discuss the Portal Ecosystem contracts, which allow xAssets to be created and moved freely around the ecosystem.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../wormhole/5_guardianNetwork.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../wormhole/7_portalTokenBridge.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../wormhole/5_guardianNetwork.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../wormhole/7_portalTokenBridge.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

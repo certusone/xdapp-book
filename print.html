@@ -1,0 +1,1206 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js ayu">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Wormhole xDapp Development Book v0.1.0</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction/introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Overview</li><li class="chapter-item expanded "><a href="dapps/0_xdappOverview.html"><strong aria-hidden="true">1.</strong> xDapps</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="dapps/1_defiBasics.html"><strong aria-hidden="true">1.1.</strong> Dapp Ecosystem Basics</a></li><li class="chapter-item expanded "><a href="dapps/2_crossChainInteroperability.html"><strong aria-hidden="true">1.2.</strong> Cross-Chain Interoperability</a></li><li class="chapter-item expanded "><a href="dapps/3_xdataxassets.html"><strong aria-hidden="true">1.3.</strong> xData &amp; xAssets</a></li><li class="chapter-item expanded "><a href="dapps/4_whatIsanXdapp.html"><strong aria-hidden="true">1.4.</strong> What is an xDapp?</a></li><li class="chapter-item expanded "><a href="dapps/5_advantages.html"><strong aria-hidden="true">1.5.</strong> Advantages of xDapps</a></li></ol></li><li class="chapter-item expanded "><a href="wormhole/0_wormholeOverview.html"><strong aria-hidden="true">2.</strong> Wormhole</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="wormhole/1_whatIsWormhole.html"><strong aria-hidden="true">2.1.</strong> What is Wormhole?</a></li><li class="chapter-item expanded "><a href="wormhole/2_architectureOverview.html"><strong aria-hidden="true">2.2.</strong> Architecture Overview</a></li><li class="chapter-item expanded "><a href="wormhole/3_coreLayerContracts.html"><strong aria-hidden="true">2.3.</strong> Core Layer Contracts</a></li><li class="chapter-item expanded "><a href="wormhole/4_vaa.html"><strong aria-hidden="true">2.4.</strong> VAA: Verified Action Approval</a></li><li class="chapter-item expanded "><a href="wormhole/5_guardianNetwork.html"><strong aria-hidden="true">2.5.</strong> Guardian Network</a></li><li class="chapter-item expanded "><a href="wormhole/6_relayers.html"><strong aria-hidden="true">2.6.</strong> Relayers</a></li><li class="chapter-item expanded "><a href="wormhole/7_portalTokenBridge.html"><strong aria-hidden="true">2.7.</strong> Portal xAsset Bridge</a></li><li class="chapter-item expanded "><a href="wormhole/8_wormchain.html"><strong aria-hidden="true">2.8.</strong> Wormchain</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">xDapp Architecture</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> xDapp Design</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Key Considerations</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Ecosystems</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.1.</strong> EVM</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.2.</strong> Solana</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.3.</strong> Cosmos</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.4.</strong> Algorand</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.3.</strong> Protocol-First Design</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.</strong> Topology</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.1.</strong> Hub &amp; Spoke</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.2.</strong> Mesh</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.5.</strong> xAssets</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.6.</strong> Relayers</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.6.1.</strong> Generic Relayers</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.6.2.</strong> Protocol-Specific Relayers</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.7.</strong> Security</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.7.1.</strong> Trust Assumptions</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.7.2.</strong> Layer 1 Risk</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.7.3.</strong> Finality Guarantees</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.8.</strong> Examples</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.8.1.</strong> Cross-Chain Dex</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.8.2.</strong> Remote Staking</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.9.</strong> Common Use Cases</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">xDapp Development</li><li class="chapter-item expanded "><a href="development/overview.html"><strong aria-hidden="true">4.</strong> Before You Start</a></li><li class="chapter-item expanded "><a href="development/wormhole-local-validator.html"><strong aria-hidden="true">5.</strong> Wormhole Local Validator</a></li><li class="chapter-item expanded "><a href="development/tilt/overview.html"><strong aria-hidden="true">6.</strong> Tilt Installation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="development/tilt/mac.html"><strong aria-hidden="true">6.1.</strong> MacOS</a></li><li class="chapter-item expanded "><a href="development/tilt/linux.html"><strong aria-hidden="true">6.2.</strong> Linux</a></li><li class="chapter-item expanded "><a href="development/tilt/constants.html"><strong aria-hidden="true">6.3.</strong> Constants</a></li></ol></li><li class="chapter-item expanded "><a href="development/scaffold/overview.html"><strong aria-hidden="true">7.</strong> Project Scaffold</a></li><li class="chapter-item expanded "><a href="development/messages/sending/overview.html"><strong aria-hidden="true">8.</strong> Sending Messages</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="development/messages/sending/evm.html"><strong aria-hidden="true">8.1.</strong> EVM</a></li></ol></li><li class="chapter-item expanded "><a href="development/messages/registration/overview.html"><strong aria-hidden="true">9.</strong> Registering xDapps</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="development/messages/registration/evm.html"><strong aria-hidden="true">9.1.</strong> EVM</a></li></ol></li><li class="chapter-item expanded "><a href="development/messages/relaying/overview.html"><strong aria-hidden="true">10.</strong> Relaying Messages</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">10.1.</strong> Manual Relays</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.2.</strong> REST &amp; Spy Relayer</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.3.</strong> Generic Relayers</div></li></ol></li><li class="chapter-item expanded "><a href="development/messages/receiving/overview.html"><strong aria-hidden="true">11.</strong> Receving Messages</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="development/messages/receiving/evm.html"><strong aria-hidden="true">11.1.</strong> EVM</a></li></ol></li><li class="chapter-item expanded "><a href="projects/summary.html"><strong aria-hidden="true">12.</strong> Projects</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="projects/evm-messenger/overview.html"><strong aria-hidden="true">12.1.</strong> EVM Messenger</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="projects/evm-messenger/messenger.html"><strong aria-hidden="true">12.1.1.</strong> Solidity</a></li><li class="chapter-item expanded "><a href="projects/evm-messenger/client.html"><strong aria-hidden="true">12.1.2.</strong> JS Client</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><li class="part-title">Portal Token Bridge</li><li class="chapter-item expanded "><a href="development/portal/overview.html"><strong aria-hidden="true">13.</strong> Portal</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">13.1.</strong> EVM</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="development/portal/evm/attestingToken.html"><strong aria-hidden="true">13.1.1.</strong> Attesting</a></li><li class="chapter-item expanded "><a href="development/portal/evm/tokenTransfer.html"><strong aria-hidden="true">13.1.2.</strong> Transfer Tokens</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">13.2.</strong> Portal JS Client Transfers</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">13.2.1.</strong> EVM to Solana Transfer</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">13.2.2.</strong> Polygon to Oasis with Relayers</div></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">14.</strong> Portal Payloads</div></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Other Resources</li><li class="chapter-item expanded "><div><strong aria-hidden="true">15.</strong> Reference</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="reference/tools.html"><strong aria-hidden="true">15.1.</strong> Tools</a></li><li class="chapter-item expanded "><a href="reference/github.html"><strong aria-hidden="true">15.2.</strong> Github &amp; Useful Links</a></li><li class="chapter-item expanded "><a href="reference/contracts.html"><strong aria-hidden="true">15.3.</strong> Deployed Contracts</a></li><li class="chapter-item expanded "><a href="reference/rpcnodes.html"><strong aria-hidden="true">15.4.</strong> RPC Nodes</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Wormhole xDapp Development Book v0.1.0</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/certusone/xdapp-book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<h2 id="welcome-to-the-wormhole-xdapp-book"><a class="header" href="#welcome-to-the-wormhole-xdapp-book">Welcome to the Wormhole xDapp Book!</a></h2>
+<p>This guide aims to help you in your journey as a cross-chain developer by explaining the core concepts of Wormhole and xDapp development.</p>
+<p>We'll start off by outlining the most important aspects of Wormhole, and the considerations which must be taken when developing an xDapp. After that, the second portion of the book helps you set up a development environment and get started writing actual code.</p>
+<p>By the end of this guide, you should be ready to build and deploy your first xDapp!</p>
+<p>While this document doesn't assume you have experience with any particular technologies, a general understanding of blockchain development will help you get up to speed.</p>
+<p>Ready to step <em>into the wormhole</em>?</p>
+<hr />
+<p>Check out this project's <a href="https://www.github.com/certusone/xdapp-book">github repository</a> to find the accompanying code examples.</p>
+<p>See the <strong>Reference</strong> section for additional resources as well.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="an-introduction-to-xdapps"><a class="header" href="#an-introduction-to-xdapps">An Introduction to xDapps</a></h1>
+<p>This chapter aims to give you a clear understanding of what xDapps are and why they're gaining traction in the blockchain development community.</p>
+<p>To start, let's go over the current state of the decentralized finance (De-Fi) ecosystem, the emerging role of xDapps and the advantages they have over conventional Dapps.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="dapp-basics"><a class="header" href="#dapp-basics">Dapp Basics</a></h1>
+<p>Since the launch of Bitcoin in 2009, the cryptocurrency and decentralized computing ecosystem has rapidly evolved and expanded. The ecosystem now includes hundreds of blockchains, often also referred to as <strong>Layer 1s</strong>.</p>
+<p>Prior to 2015, blockchain transactions were limited in their capacities, typically being used to transfer funds from one user to another. This changed with the intoduction of Ethereum and smart contracts. Smart contracts allowed developers to perform arbitrary on-chain computation as part of a blockchain transaction, opening the door for blockchain technology to become a global computing platform. These innovations laid the groundwork for the creation of <strong>Decentralized Applications</strong> or <strong>Dapps</strong>.</p>
+<p>Now, a rich ecosystem of Dapps exists across an array of smart-contract-enabled blockchains. These Dapps provide a number of services across categories like:</p>
+<ul>
+<li>Decentralized Exchanges (DEXs)</li>
+<li>Decentralized Autonomous Organizations (DAOs)</li>
+<li>Borrow-Lend Platforms</li>
+<li>Decentralized Games</li>
+<li>NFT Protocols</li>
+<li>Metaverse Platforms</li>
+<li>and more</li>
+</ul>
+<p>However, Dapps are not without limitations, many of which are tied to their underlying blockchains.</p>
+<p>Two notable limitations are that blockchains have no access to off-chain data and no mechanism to interact with other blockchains. These limitations have lead to a fractured ecosystem where each blockchain is closed off from the others by default. That means assets native to one chain are not accessible on another, and some services can't be leveraged on particular chains altogether.</p>
+<p>Blockchain developers are now aiming to solve these interoperability problems to create a unified ecosystem. In this new cross-chain ecosystem, people can move beyond being users of individual blockchains and take advantage of Web3 on a broader scale.</p>
+<p>In the next section, we'll discuss the history and challenges of cross-chain interoperability, as well as introduce the role Wormhole plays in the future of this space.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cross-chain-interoperability"><a class="header" href="#cross-chain-interoperability">Cross-Chain Interoperability</a></h1>
+<p>Because blockchains are siloed by nature, individual cryptocurrencies being bound to their own chains has been a longtime limitation of blockchain technology. The first attempt at solving this problem was the creation of cryptocurrency exchanges like Coinbase and Binance. Today these are refered to as centralized exchanges (CEXs).</p>
+<p>Centralized exchanges play an important role in cryptocurrency, but they are not a complete solution for cross-chain interoperability for two primary reasons: they're centralized, which is counterproductive to creating a decentralized platform, and they deal only with tokens. </p>
+<p>As blockchains move toward being general-purpose computing platforms, interoperability will require data structures that are more complex than tokens and operations that are more sophisticated than transfers.</p>
+<p>To solve the centralization problems with CEXs, decentralized exchanges (DEXs) were created. A DEX operates inside a smart contract runtime and can be as decentralized as the blockchain it runs on. Unfortunately, a DEX is only able to utilize the tokens on its native blockchain. In order to obtain a token which is not native to that chain, the DEX must be used in combination with a <strong>bridge</strong>.</p>
+<p><strong>Bridges</strong> are complex and will be discussed at length in a later section. For now, we can categorize bridges as applications which 'lock' assets on one chain in exchange for <strong>wrapped assets</strong> on another chain. The wrapped assets can then be exchanged for the original 'backing' asset.</p>
+<p>There are some other essential things you should know about bridges before going further:</p>
+<ul>
+<li>Bridges are capable of being decentralized in theory, but are often quite centralized in practice.</li>
+<li>Bridges are currently the only way to hold a token on a chain other than its 'native' chain. If you're holding ETH on a chain other than Ethereum, it is, by definition, a wrapped token.</li>
+<li>Bridges are all mutually incompatible with eachother. Using multiple bridges just makes 'double wrapped' tokens.</li>
+<li>If tokens have become double wrapped after traversing multiple bridges or blockchains, there can be a complex unwrapping process to get back to the original token.</li>
+</ul>
+<p>This explains how the ecosystem arrived at its current state--CEXs are a solution to siloed blockchains, DEXs are a simple response to CEXs, and DEXs have created a demand for bridges. Each solution in this timeline is an ad-hoc patch to the previous problem, and the current landscape of fractured liquidity, double wrapped tokens, isolated userbases and wallet incompatibilities is the result.</p>
+<p>More ad-hoc solutions would only be short-term fixes for long-term problems, so it's critical to design new primatives and core infrastructure that will allow the next generation of decentralized applications to move beyond these lingering limitations.</p>
+<p>This is why Wormhole exists. Wormhole proposes a new way of developing applications which leverages the strengths of each blockchain while mitigating the problems of the current ecosystem.</p>
+<p>Rethinking the next generation of decentralized applications means dethroning the token as the fundamental atomic unit of blockchains. We'll expand on this change in the next section.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="xdata-and-xassets"><a class="header" href="#xdata-and-xassets">xData and xAssets</a></h1>
+<p>One of the biggest items on the wishlist of features for blockchains is the ability to detach tokens from their native chains. It is a tremendous limitation that ETH only exists on Ethereum, MATIC only exists on Polygon, and SOL only exists on Solana. It would be far more convenient if those assets existed independently of their blockchains, and were able to move freely.</p>
+<p>This is the concept of an <strong>xAsset</strong>, and it should be thought of as the next-generation <em>wrapped token</em>. The key feature of an xAsset is that it is chain and path agnostic, and thus retains fungibility regardless of where it travels. xAssets can move fluidly around the blockchain ecosystem without ever becoming double-wrapped. In a sense, xAssets are abstracted to a layer <em>outside</em> of the blockchain ecosystem, and are then able to transact on whatever blockchain is most sensible.</p>
+<p>Once you've envisioned this next-generation asset, you might think it's an excellent atomic unit for solving interoperability. However, this idea is just one step short of the real solution. Blockchains process arbitrary data nowadays, and some of that data just happens to represent assets. The full solution then - is to invent <strong>xData</strong>.</p>
+<p><strong>xData</strong> is akin to an xAsset, in that it exists in its own layer independent of any blockchain, which is then accessible by <em>all</em> blockchains. The only difference is that it represents arbitrary data, rather than token information.</p>
+<p>Cross-chain interoperability then reduces to the problem of creating and consuming xData. Once blockchains are able to read and write into this xData layer, xAssets are simply a use-case, and come as almost a natural consequence. If you have the ability to read and write data into a shared, global reservior, you can design any application you can imagine.</p>
+<p>In chapter 2 we'll delve deeper into how Wormhole implements this xData layer (also referred to as the 'Core' layer of Wormhole), but for now let's move on to how xDapps can be created on top of it.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="what-is-an-xdapp"><a class="header" href="#what-is-an-xdapp">What is an xDapp</a></h1>
+<p>The term <strong>xDapp</strong> is short for &quot;Cross-Chain Decentralized Application&quot;. At first glance, this might give the impression that xDapps are simply Dapps which meddle a bit in doing cross-chain things. However, once you get into the business of building decentralized products which are designed to operate across a variety of blockchains and runtimes, you begin to see that these applications are architected in a fundamentally different fashion than traditional Dapps.</p>
+<p>The Wormhole Core Layer implements xData, which acts as a shared repository of data across the entire Wormhole Ecosystem. xDapps have the capacity to perform all the operations of traditional Dapps, but they also utilize this xData. This xData allows xDapp developers to build from a top-down, message-passing approach, rather than the bottom-up world of Dapp developers.</p>
+<p>Something we'll dive deeper into during the xDapp Architecture chapter is the philosophy of <strong>Protocol-First Design</strong>. Protocol First Design is an approach to building decentralized applications whereby the first order of business is to lay out your application into a series of data structures, APIs, and message payloads. Once you've laid out your application into a high-level protocol, the protocol acts as an agreement to which all of your components must adhere. From there, the smart contracts underlying this protocol can be considered an implementation detail.</p>
+<p>If you're familiar at all with web2 development, you'll immediately notice that this philosophy is quite analogous to microservice architecture. This is no coincidence, as similar problems should expect to be solved by similar solutions, and the Wormhole Core Layer is quite analogous to the OSI Network Model in many ways.</p>
+<p>Thus, a more fitting depiction of xDapps might be to see them as <strong>Distributed Decentralized Applications</strong>, which have multiple, specialized components working in unison to implement a protocol which delivers a smooth, unified user experience across a variety of layer 1 ecosystems.</p>
+<hr />
+<p>So far we've taken a really high-level and abstract approach to explaining what xDapps are. In the next section we'll get back to real world, and summarize the concrete advantages which xDapps built on Wormhole have over traditional apps today.</p>
+<div style="break-before: page; page-break-before: always;"></div><p>Let's wrap up our discussion of xDapps by highlighting the features they enable, and how they move the ball forward in blockchain technologies.</p>
+<ul>
+<li>
+<p><strong>Expanded User Base</strong> - rather than being limited to the users of one blockchain, any user on any blockchain in the supported ecosystem can interact with an xDapp.</p>
+</li>
+<li>
+<p><strong>Unified Liquidity</strong> - Liquidity fragmentation is a major problem in the current ecosystem. xAssets, unlike traditional tokens, can be pooled and moved anywhere necessary.</p>
+</li>
+<li>
+<p><strong>Decentralization</strong> - Cross-chain solutions today usually involve highly centralized exchanges or bridges. Wormhole has been designed to be decentralized from day one, and eventually totally trustless.</p>
+</li>
+<li>
+<p><strong>Increased Performance</strong> - xDapps are able to utilize the strengths of each blockchain. Expensive computations can be offloaded onto high-performance platforms. Final settlement can be on the preferred chain of the user. Data can be stored wherever is cheapest.</p>
+</li>
+<li>
+<p><strong>Broader Market Reach</strong> - Because xAssets move freely through the ecosystem, they can be listed on a variety of exchanges, and custodied on any blockchain.</p>
+</li>
+<li>
+<p><strong>Increased Extensibility and Composeability</strong> - xDapps expand upon the composeability and openness of smart contracts. xDapps can utilize anything across the ecosystem, including other xDapps.</p>
+</li>
+<li>
+<p><strong>Future Proofing</strong> - As new environments and protocols join the decentralized ecosystem, the connected nature of the Wormhole ecosystem allows existing protocols to expand and support them.</p>
+</li>
+</ul>
+<p>Now that you have an understanding of what xDapps are and the advantages they offer, let's move on to the next chapter, where we will delve into the nitty gritty of how Wormhole works, and how it enables the creation of these next-generation protocols.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="wormhole"><a class="header" href="#wormhole">Wormhole</a></h1>
+<p>In the previous chapter, we established concepts like xDapps, xData, and xAssets. In this chapter, we'll dive into the inner workings of the Wormhole ecosystem, and how they give rise to these ideas.</p>
+<p>By the end of this chapter, you should have a clear understanding of what Wormhole is, what its key components are, and how each of those components comes together to create a powerful, new cross-chain ecosystem.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="what-is-wormhole"><a class="header" href="#what-is-wormhole">What is Wormhole?</a></h1>
+<p>Wormhole was first conceived in 2020 by Certus One, and was initially scoped as a traditional token bridge between Ethereum and Solana. The Wormhole v1 Token Bridge was the first bridge on Solana, and was responsible for bootstrapping a large amount of the liquidity in the early Solana and Serum ecosystems.</p>
+<p>Despite its beginnings as a token bridge, Wormhole quickly grew beyond Solana, and beyond the domain of token transfers.</p>
+<p>Wormhole v2 launched in August 2021 as a decentralized generic interoperability protocol for multiple blockchain ecosystems, with initial support for Solana, Terra, Ethereum, and Binance Smart Chain.</p>
+<p>Over the past year, Wormhole has grown to support an ever-growing list of blockchains, across an unrivaled number of smart contract runtimes.</p>
+<p>While Wormhole is a generic interoperability protocol, it is also an ecosystem and platform for developers to grow the decentralized computing space. Wormhole consists of multiple modular swap-in components which can be leveraged independently, and supports a growing number of composible applications built by numerous teams.</p>
+<p>In the next section, we'll go over the major components of the Wormhole ecosystem, and how they fit together to enable the high-level cross chain functionality required to develop xDapps.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="architecture-overview"><a class="header" href="#architecture-overview">Architecture Overview</a></h1>
+<p>Wormhole is a fairly complex ecosystem, with several noteworthy components. Before we go in depth into each component, let's take a moment to lay out the names of the major pieces, and how they fit together.</p>
+<p><img src="wormhole/../diagrams/images/architecture-2022-01-02-1935.png" alt="Architecture Diagram" /></p>
+<h3 id="on-chain-components"><a class="header" href="#on-chain-components">On-Chain Components</a></h3>
+<ul>
+<li>
+<p><strong>xDapp Contracts</strong> - these are contracts developed by xDapp developers. They receive transactions from the end user, and then interact with other xDapp contracts and Wormhole Ecosystem Contracts in order to provide their service.</p>
+</li>
+<li>
+<p><strong>Ecosystem Contracts</strong> - these are contracts inside the Wormhole Ecosystem, subject to Wormhole governance. Their job is to provide the feature suite of Wormhole to xDapp developers.</p>
+<ul>
+<li><strong>Core Contracts</strong> - these are the primary ecosystem contracts. These are the contracts which the Guardians observe, and which fundamentally allow for cross-chain communication.</li>
+<li><strong>Portal xAsset Contracts</strong> - these contracts allow normal tokens to be converted to xAssets, and enable these xAssets to be bridged around the ecosystem.</li>
+<li><strong>Relay Contracts</strong> - <em>in development*</em> - allow xDapps to send messages to a specific blockchain, via the use of the decentralized Generic Relayer network.</li>
+<li><strong>Gas Oracle</strong> - <em>in development*</em> - oracle for recommended fair gas prices across the ecosystem.</li>
+</ul>
+</li>
+</ul>
+<h3 id="off-chain-components"><a class="header" href="#off-chain-components">Off-Chain Components</a></h3>
+<ul>
+<li>
+<p><strong>Guardian Network</strong> - Guardians exist in their own p2p network. They observe the Core Contract on each supported chain, and produce VAAs (signed messages) when those contracts receive an interaction.</p>
+<ul>
+<li>
+<p><strong>Guardian</strong> - One of the validators in the Guardian Network which contributes to the VAA multisig. There are currently exactly 19 Guardians.</p>
+</li>
+<li>
+<p><strong>Spy</strong> - Validators on the Guardian Network which are not part of the Guardian set. These spies can observe and forward network traffic, which helps scale up VAA distribution.</p>
+</li>
+<li>
+<p><strong>Wormchain</strong> - <em>in development*</em> - a purpose built cosmos blockchain which aids the Guardian Network, and allows for formal interaction with the Guardians.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Specialized Relayers</strong> - relayers which only handle VAAs for a specific protocol or xDapp. This allows them to execute custom logic off-chain, which can reduce gas costs and increase cross-chain compatibility. Currently, xDapp developers are responsible for developing and hosting this component.</p>
+</li>
+<li>
+<p><strong>Generic Relayers</strong> - <em>in development*</em> - a decentralized relayer network which delivers messages that are requested on-chain via the Wormhole Relay Contract.</p>
+</li>
+<li>
+<p><strong>VAAs</strong> - Verifiable Action Approvals - These are the key piece of data in the Wormhole ecosystem. They contain the messages which are emitted by xDapps, along with information such as what contract emitted the message. The VAAs are signed by the Guardians, and need 13/19 signatures in order to be considered authentic.</p>
+</li>
+</ul>
+<p>**Features listed as <em>in development</em> are not yet available in mainnet.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="core-contracts"><a class="header" href="#core-contracts">Core Contracts</a></h1>
+<p>The Wormhole Core Contracts are one of the most pivotal pieces of the Wormhole ecosystem, and serve as a great place to start when learning about how data flows through the ecosystem.</p>
+<p>There is one Core Contract on each blockchain in the ecosystem, and this is the contract which the Guardians are required to observe. The Core Contracts are the mechanism by which all Wormhole messages are emitted. All xDapps either interact directly with the Core Contract, or interact with some other contract which does.</p>
+<p>The Core Contracts are quite simple and only have a few public-facing functions.</p>
+<hr />
+<pre><code>publishMessage(
+    int nonce,
+    byte[] payload,
+    int consistencyLevel
+) returns int sequenceNumber
+</code></pre>
+<p>This is the mechanism by which Wormhole Messages are emitted.</p>
+<ul>
+<li>
+<p><strong>payload</strong> is an arbitrary byte array, and is the content of the emitted message. It may be capped to a certain maximum length due to the constraints of individual blockchains.</p>
+</li>
+<li>
+<p><strong>consistencyLevel</strong> is the number of blocks which the guardians should wait prior to emitting a VAA for this message. This number is usually either 1, or equal to the chain's finality period. This is a defense against transactions being orphaned.</p>
+</li>
+<li>
+<p><strong>nonce</strong> - on chains where batch VAAs are supported, if multiple messages in the same transaction have the same nonce, a batch VAA will be produced alongside the individual VAAs. This feature reduces gas costs and simplifies composeability.</p>
+</li>
+<li>
+<p><strong>sequenceNumber</strong> - this is a unique index number for the message. When combined with the emitter contract address and emitter chain ID, the corresponding VAA can be retrieved from a guardian network node.</p>
+</li>
+</ul>
+<p>The implementation strategy for publishMessage differs by chain. However, the general strategy is that the Core Contract will post the emitterAddress (the contract which called publishMessage), sequenceNumber, and consistencyLevel into the blockchain logs. Once the desired consistencyLevel has elapsed, the Guardian Network will produce the requested VAAs.</p>
+<p>Currently there are no fees to publish a message, except when publishing on Solana. This is not guaranteed to always be the case, however.</p>
+<hr />
+<p>Second, we have 'receiving' side of the Core contract.</p>
+<pre><code>parseAndVerifyVAA( byte[] VAA )
+</code></pre>
+<p>This function, when passed a VAA, will either return the payload and associated metadata for the VAA, or throw an exception. An exception should only ever throw if the VAA fails signature verification, which would indicate that the VAA is invalid or inauthentic in some form.</p>
+<hr />
+<h2 id="multicasting"><a class="header" href="#multicasting">Multicasting</a></h2>
+<p>Let's take a moment to point out that there is no inclusion of any destination address or chain in these functions.</p>
+<p>VAAs simply attest that &quot;This contract on this chain said this thing&quot;. Therefore, VAAs are multicast by default, and will be verified as authentic on any chain they are brought to.</p>
+<p>This multicast-by-default model is intentional, and also integral to the design. Having this multicast capacity makes it easy to synchronize state across the entire ecosystem, because a single blockchain can make its data available to every chain in a single action with low latency. This, in turn, reduces the complexity of the n^2 problems encountered by routing data to a large number of blockchains.</p>
+<p>Use cases where the message has an intended recipient or is only meant to be consumed once must be handled in logic outside the Core Contract. There are standard practices for accomplishing these features shown later on in the code examples, and some ecosystem contracts (namely Portal &amp; the Relaying contract) handle this on behalf of downstream consumers.</p>
+<p>Lastly, because the VAA creation is a separate concern from relaying, there is <em>no additional cost</em> to this multicast model when a single chain is being targetted. If the data isn't needed on a certain blockchain, don't relay it there, and it won't cost anything.</p>
+<p>In the next section we'll dive into the technical specfications of the VAA.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="vaas-verified-action-approval"><a class="header" href="#vaas-verified-action-approval">VAAs (Verified Action Approval)</a></h1>
+<p>VAAs are the core messaging primative in Wormhole. You can think of them as packets of xData. Any time an xDapp contract interacts with the Core Contract, a VAA is emitted.</p>
+<p>The basic VAA has two components, a Header and a Body.</p>
+<h2 id="header"><a class="header" href="#header">Header</a></h2>
+<pre><code>byte        version                  (VAA Version)
+u32         guardian_set_index       (Indicates which guardian set is signing)
+u8          len_signatures           (Number of signatures stored)
+[][66]byte  signatures               (Collection of ecdsa signatures)
+</code></pre>
+<p>The header is used by the Core Contract to determine the authenticity of the VAA, but can generally be ignored by other consumers.</p>
+<h2 id="body"><a class="header" href="#body">Body</a></h2>
+<pre><code>u32         timestamp                 (Timestamp of the block where the source transaction occurred)
+u32         nonce                     (A grouping number)
+u16         emitter_chain             (Wormhole ChainId of emitter contract)
+[32]byte    emitter_address           (Emitter contract address, in Wormhole format)
+u64         sequence                  (Strictly increasing sequence, tied to emitter address &amp; chain)
+u8          consistency_level         (How many blocks were waited before emitting this VAA)
+[]byte      payload                   (VAA message content)
+</code></pre>
+<p>The body is the relevant information for consumers, and is handed back from parseAndVerifyVAA. Because the emitterAddress is included as part of the body, the developer is able to discern if this VAA originated from a trusted contract.</p>
+<p>VAAs are uniquely indexed by their emitterChain, emittedAddress, and sequence. VAAs can be obtained by querying a node in the Guardian Network with this information.</p>
+<p>Because baseline VAAs have no destination, they are effectively multicast. They will be verified as authentic by any Core Contract on any chain in the network, and it is entirely the responsibility of relayers to deliver VAAs to the appropriate destination.</p>
+<h2 id="batch-vaas"><a class="header" href="#batch-vaas">Batch VAAs</a></h2>
+<p>Certain blockchains support version 2 VAAs, also referred to as <strong>Batch VAAs</strong>. When multiple messages with the same nonce are emitted in the same transaction, a batch VAA will be created in addition to the individual VAAs. The Batch VAA contains the body of each individual VAA, but only has a single header. This reduces the gas cost of verifying the VAA, and also simplifies the process of relaying and consuming multiple VAAs.</p>
+<p>Batch VAAs are not currently live on mainnet, but will have initial support on all EVM chains when they launch.</p>
+<hr />
+<p>In the next section, we will give an overview of how the Wormhole Guardian network creates these VAAs, and the key design considerations which underpin the network.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="guardian-network"><a class="header" href="#guardian-network">Guardian Network</a></h1>
+<p>The Guardian Network is the backbone and most critical component of the Wormhole ecosystem. It is designed to serve as Wormhole's oracle component, and the rest of the Wormhole ecosystem is really founded upon the technical underpinnings of this network. Therefore, this is the single most important component to learn about if you want a deep understanding of Wormhole.</p>
+<p>To understand not just <em>how</em> the Guardian Network works, but also <em>why</em> it works the way it does, let's first take a step back, and go over the key considerations which went into the design. There were essentially five critical features which Wormhole needed to have in order to become the best-in-class interoperability platform.</p>
+<ol>
+<li><strong>Decentralization</strong> - Control of the network needs to be distributed amongst many parties.</li>
+<li><strong>Modularity</strong> - Disparate parts of the ecosystem such as the oracle, relayer, applications, etc, should be kept as separate and modular as possible so they can be designed, modified, and upgraded independently.</li>
+<li><strong>Chain Agnosticism</strong> - Wormhole should be able to support not only EVM, but also chains like Solana, Algorand, Cosmos, and even platforms which have not even yet been created. It also should not have any one chain as a single point of failure.</li>
+<li><strong>Scalablity</strong> - Wormhole should be able to secure a large amount of value immediately, and should also be able to handle the large transaction volume which will come from high-performance blockchains like Solana.</li>
+<li><strong>Upgradeability</strong> - As the decentralized computing ecosystem evolves and new tech becomes prevalent, Wormhole will need to be able to change the implementation of its existing modules without breaking integrators.</li>
+</ol>
+<p>Next, let's go into how Wormhole achieves these one at a time.</p>
+<h2 id="decentralization"><a class="header" href="#decentralization">Decentralization</a></h2>
+<p>Decentralization is the biggest item. Previous interoperability solutions have largely been entirely centralized, and even newer solutions which utilize things like adversarial relayers still tend to have single points of failure or collusion thresholds as low as 1 or 2.</p>
+<p>In designing a decentralized oracle network, the first option to consider is probably a Proof-of-Stake system. However, upon closer inspection, this actually turns out to be a suboptimal solution. PoS is designed for blockchain consensus in smart-contract enabled environments, and it's less suitable when the network is verifying the output of many blockchains and not supporting its own smart contracts. While it looks appealing from a decentralization perspective, the network security is somewhat unclear, and it also makes some of the other outlined goals more difficult to achieve, so let's discuss other options.</p>
+<p>The first option would be to rush straight for the finish line, and use zero-knowledge proofs in order to secure the network. This would be the best from a decentralization perspective, as it's literally trustless. However, zero knowledge proofs are still a nascent technology, and it's not really feasible to verify them on-chain, especially on chains with limited computational environments. Thus, some form of multisig will be needed to secure the network.</p>
+<p>If we take a step away from game-theoretic considerations of various consensus models and look at the current De-Fi landscape, it's easy to see that most of the top blockchains are secured by the same handful of validator companies. The reality is that at this point in time there are only a limited number of companies in the world with the skills and capital to run top-notch validator companies.</p>
+<p>Thus, if a protocol could unite a large number of those validator companies into a purpose-built consensus mechanism which is optimized for chain interoperability, that design would likely be both more performant and more secure than a network which was bootstrapped by a tokenomics model. Assuming the validators would be on board with this idea, how many could Wormhole realistically utilize?</p>
+<p>If Wormhole were to use threshold signatures, the answer would basically be 'as many as are willing to participate'. However, threshold signatures have spotty support across the blockchain world, this means it would be difficult and expensive to verify the signatures, which would limit scalability and chain agnosticism. Thus, a t-schnorr multisig is probably the best option as it is cheap and well supported, despite the fact that its verification costs increases linearly with the number of signatures included.</p>
+<p>So, with all these things considered, about 19 seems to be the maximum number and a good tradeoff. While it's less ideal than 2000, it's a lot more than most protocols have. 2000 would be infeasible to verify on-chain, and there are not even 2000 top-notch validators in the world today. If 2/3 of the signatures are needed for consensus, then 13 signatures need to be verified on-chain, which remains reasonable from a gas-cost perspective.</p>
+<p>Furthermore, rather than securing the network with tokenomics, it is better to initially secure the network by involving robust companies which are heavily invested in the success of De-Fi as a whole. The 19 Guardians are not just anonymous nobodies running their validators out of a basement. They are many of the largest and widely-known validator companies in cryptocurrency. The current Guardians can be viewed <a href="https://wormholenetwork.com/network/">here</a></p>
+<p>Putting this all together, we end up with 19 Guardians, each with an equal stake, joined in a purpose-built Proof of Authority consensus mechanism. As threshold signatures become better supported, the guardian set can expand, and once ZKPs are ubiquitous, the Guardian Network will become fully trustless.</p>
+<p>Now that we have Decentralization laid out, the remaining elements fall into place.</p>
+<h2 id="modularity"><a class="header" href="#modularity">Modularity</a></h2>
+<p>Because the Guardian Network is robust and trustworthy by itself, there is no need for components like the relayer to contribute to the security model. Thus, Wormhole is able to have simple components which are very good at the one thing they do. The Guardians only need to verify on-chain activity and produce VAAs. Relayers only need to concern themselves with how to interact with blockchains and deliver messages.</p>
+<p>The signing scheme of the VAAs can be changed without affecting downstream users. Multiple relay mechanisms can exist independently. xAssets can be implemented purely at the application layer. xDapps can utilize whatever components suit them.</p>
+<h2 id="chain-agnosticism"><a class="header" href="#chain-agnosticism">Chain Agnosticism</a></h2>
+<p>Wormhole supports a wider range of ecosystems than any other interoperability protocol today. That is largely because it utilizes simple tech (t-schnorr signatures), an adaptable, heterogenous relayer model, and a robust validator network.</p>
+<p>Wormhole can expand to new ecosystems as quickly as a Core Contract can be developed for the smart contract runtime. Relayers don't need to be factored into the security model, they just need to be able to upload messages to the blockchain. The Guardians are able to observe every transaction on every chain, without taking shortcuts.</p>
+<h2 id="scalability"><a class="header" href="#scalability">Scalability</a></h2>
+<p>Wormhole scales quite well, as shown by Portal's ability to handle huge TVL and transaction volume, even during tumultuous events such as the UST depeg.</p>
+<p>The requirements for running a Guardian are relatively heavy, as they need to run a full node for every single blockchain in the ecosystem. This is another reason why a limited number of robust validator companies are beneficial for this design.</p>
+<p>However, once all the full nodes are running, the actual computation and network overheads of the Guardian Network are quite lightweight. As such, the performance of the blockchains themselves tends to be the bottleneck in Wormhole, rather than anything which happens inside the Guardian Network.</p>
+<h2 id="upgradability"><a class="header" href="#upgradability">Upgradability</a></h2>
+<p>Over time, the Guardian Set can be expanded beyond 19 with the use of threshold signatures. A variety of relaying models will emerge, each with their own strengths and weaknesses. ZKPs can be used on chains where they are well supported. The xDapp ecosystem will grow, and xDapps will become increasingly intermingled with eachother. There are very few APIs in Wormhole, and most items are implementation details from the perspective of an integrator. This creates a clear pathway towards a fully trustlessness interoperability layer which spans the entirety of decentralized computing.</p>
+<p>In the next section, we will talk about the role and responsbilities of relayers in the Wormhole ecosystem.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="relayers"><a class="header" href="#relayers">Relayers</a></h1>
+<p>Relayers are a major part of the Wormhole Ecosystem. Where the Guardian Network is effectively the 'read' portion of interoperability, relayers are the 'write'.</p>
+<p>The first thing of note is that unlike other interoperability protocols, Wormhole <strong>does not have a required relaying methodology</strong>.</p>
+<p>In most designs there is a dedicated relaying mechanism which operates inside the protocol's trust boundaries. This means that the relayer either has an adversarial relationship to the oracle, or the relayer has trust assumptions and contributes to the protocol's security model. Thus, relayers are usually a trusted party, are often also privileged, and you are forced to use the relayer model which is built into the protocol.</p>
+<p>In Wormhole, relayers are neither trusted nor privileged. This means relayers <strong>cannot jeopardize security, only liveness</strong>. Because Wormhole is designed to have a firm trust boundary at the level of the VAA, relayers have exactly the same capabilities as any regular, untrusted blockchain user.</p>
+<p>From this perspective, relayers are just dumb delivery trucks which deliver VAAs to their destination, and have no capacity to potentially tamper with the delivery outcome. VAAs either get delivered, or don't, which makes relayers analagous to the off-chain 'crank turners' of traditional Dapps.</p>
+<p>As a result of this design, Wormhole is able to fascilitate a variety of heterogenous relaying mechanisms, and the developer is able to choose whatever best suit their needs.</p>
+<p>The definition of a <em>Relayer</em> in the context of Wormhole is:</p>
+<pre><code>Any process which delivers VAAs to a destination
+</code></pre>
+<p>Next, we'll go over a few of the most common relaying strategies.</p>
+<h2 id="client-side-relaying"><a class="header" href="#client-side-relaying">Client-side Relaying</a></h2>
+<p>Client side relaying is kind of a good tutorial case, as it's relatively straight forward.</p>
+<p>All simple processes on Wormhole essentially boil down to a three step process:</p>
+<pre><code>1. Perform some action on chain A.
+2. Retrieve the resulting VAA from the Guardian Network.
+3. Perform some action on chain B using the VAA.
+</code></pre>
+<p>Considering that the first step of this process is almost always initiated from a user-facing frontend such as a webpage or a wallet, it is possible to also perform steps 2 and 3 in the frontend as well. This is referred to as 'client-side relaying', and it has two major benefits:</p>
+<ul>
+<li>Low cost. Users pay exactly the transaction fee for the second transaction.</li>
+<li>No backend relaying infrastructure.</li>
+</ul>
+<p>For this reason, client-side relaying can be a tempting avenue to pursue, especially if you're just interested in getting an MVP running. However, client-side relaying has two notable drawbacks:</p>
+<ul>
+<li>Users must sign all transactions required with their own wallet</li>
+<li>Users must have funds to pay the transaction fees on every chain involved.</li>
+</ul>
+<p>Overall, client-side relaying is a simple solution, but can make the user experience cumbersome. Thus, it's generally not recommended if your goal is a highly-polished user experience.</p>
+<h2 id="specialized-relayers"><a class="header" href="#specialized-relayers">Specialized Relayers</a></h2>
+<p>Specialized Relayers solve the UX problems of client-side relayers by adding a backend component which can handle steps 2 and 3 on behalf of the user.</p>
+<p>In this model, relayers either listen directly to the Guardian Network via a spy (This is called <strong>Spy Relaying</strong>), or will simply provide a REST endpoint to accept a VAA which should be relayed (called <strong>REST Relaying</strong>). Once a relayer has the VAA, it simply performs any necessary off-chain calculations, and submits the VAA to the required destination.</p>
+<p>An important consideration when developing a specialized relayer is that the relayer is still considered untrusted. VAAs are totally public, and can be submitted by anyone, so the off-chain relayer should not do any computation which is considered &quot;trusted&quot;. However, doing things like deterministic data transforms, waiting for gas prices to drop, or various forms of 'batching' can be very useful cost-reduction strategies which do not impact security.</p>
+<p>Specialized Relayers have the following advantages:</p>
+<pre><code>- Simplify user experience
+- Allow off-chain calculations to be performed in the relayer, reducing gas costs.
+- Generally easy to develop
+</code></pre>
+<p>However, they also have a couple notable downsides</p>
+<pre><code>- Adds a backend relaying component which is responsible for liveness
+- Complicates fee-modeling, as relayers are responsible for paying target chain fees.
+</code></pre>
+<p>Because relayers are responsible for liveness, they become another dependency component for the xDapp. If the relayers are all down, your application has an outage, similarly to how other dependencies such as the frontend, blockchain nodes, blockchains, third party APIs, etc, also can cause outages.</p>
+<p>To mitigate this, many relayers can be run in order to provide redundancy. It's also possible to design specialized relaying solutions which are entirely decentralized, such that there are a network of relayers which run based off economic incentives. However, creating a robust model for decentralized relaying is generally application-specific and somewhat complex.</p>
+<p>Due to specialized relayers being such a common solution,there is a reference implementation provided in the main Wormhole repository, which stands up the infrastructure needed to provide both a Spy and REST interface, and to interact with each blockchain in the ecosystem. If you plan to develop a specialized relayer, consider starting from the reference implementation, and add modifications as needed.</p>
+<h1 id="generic-relayers"><a class="header" href="#generic-relayers">Generic Relayers</a></h1>
+<p><em>Note: this feature is not yet available in mainnet</em></p>
+<p>Because relaying is such an integral component to xDapps, Wormhole has built a protocol which allows developers to utilize a decentralized network of untrusted relayers to deliver their messages, removing the specialized relayer as an infrastructure responsibility.</p>
+<p>In order to utilize the generic relayer network, developers must request delivery from the Wormhole Relay Ecosystem Contract, and must also implement a &quot;receiveRelay&quot; function in their contracts, which will be called by the relayer. Once a delivery has been requested, the VAA is guaranteed to be delivered within a certain timeframe. The specifics of this vary by blockchain and smart contract runtime.</p>
+<p>Generic relayers have the following benefits:</p>
+<pre><code>- Simplified UX
+- No relayer infrastructure requirements for the developer
+</code></pre>
+<p>Along with the following potential downsides:</p>
+<pre><code>- Require all calculations to be done on-chain
+- Less gas efficiency
+- May not be supported on all chains
+</code></pre>
+<hr />
+<p>That's the main overview of how xData is emitted, verified, and delivered across the Wormhole ecosystem. In the next section we'll discuss the Portal Ecosystem contracts, which allow xAssets to be created and moved freely around the ecosystem.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="portal"><a class="header" href="#portal">Portal</a></h1>
+<p>Portal is a set of ecosystem contracts which provision Wormhole's xAsset layer. These contracts allow tokens to be bridged around the Wormhole Ecosystem in a <strong>path-independent</strong> fashion, and in a manner easily composeable with other functions in the Wormhole ecosystem, such as Core-Layer messaging.</p>
+<p>The Portal functions are a major focus of the <a href="https://www.npmjs.com/package/@certusone/wormhole-sdk">Wormhole Typescript SDK</a>. If you're looking to interact with Portal directly from a typescript client or backend, you should start there. This section will only provide a high-level overview of how to interact with the Portal contracts. If you'd prefer to look at code examples, they are provided in the <strong>Portal Examples</strong> section.</p>
+<h2 id="creating-xassets"><a class="header" href="#creating-xassets">Creating xAssets</a></h2>
+<p>xAssets always have an <strong>origin chain</strong>. This is the chain where the token is initially minted, via the standard of that chain (ERC-20, SPL, etc).</p>
+<p>To begin converting this asset into an xAsset, an <strong>attestation</strong> must first be created. This is accomplished by simply calling the <strong>attest</strong> function on the Portal contract of the origin chain.</p>
+<pre><code>function attestToken(
+    address tokenAddress,
+    uint32 nonce)
+ returns (uint64 sequence)
+</code></pre>
+<p>The Guardian Network will then produce an <strong>attestation VAA</strong>, which can be retrieved using the sequence number returned by the attestToken function.</p>
+<p>The attestation VAA must then be submitted to the <strong>createWrapped</strong> function of every other chain, referred to as <strong>foreign chains</strong> for this token.</p>
+<pre><code>function createWrapped(
+    bytes memory encodedVm)
+returns (address token)
+</code></pre>
+<p>Calling this function will deploy a new contract for the token on the foreign chain, creating a <strong>Wormhole-Wrapped Token</strong>. The wrapped token will use the same symbol as the origin asset, and will append (Wormhole) to the end of the name.</p>
+<p>These assets are all <strong>fungible</strong> with eachother. This means the wrapped token from any chain can be exchanged for the original token or any of the wrapped tokens from other chains.</p>
+<h2 id="transferring-assets"><a class="header" href="#transferring-assets">Transferring Assets</a></h2>
+<pre><code>function transferTokens(
+    address token,
+    uint256 amount,
+    uint16 recipientChain,
+    bytes32 recipient,
+    uint256 arbiterFee,
+    uint32 nonce) returns (uint64 sequence)
+</code></pre>
+<p>Initiating a token transfer is a relatively straightforward affair. After the transfer is initiated, the Guardians will produce a transfer VAA once finality has been reached on the <strong>source chain</strong>. The VAA must then be relayed to the <strong>target chain</strong>.</p>
+<p>All tokens managed by Portal are backed by the origin asset, and this allows for the tokens to be transferred in a path-independent fashion. Regardless of what chain the tokens are passed to, a 'double-wrapped' asset will never be created for a single backing asset. Additionally, because Portal is based purely on a wrapping model, there are no liquidity limitations.</p>
+<h2 id="contract-controlled-transfers"><a class="header" href="#contract-controlled-transfers">Contract-Controlled Transfers</a></h2>
+<p>Contract Controlled Transfers (CCTs) are a feature designed to allow xDapp contracts to easily perform Portal transfers. Contract controlled transfers are quite similar to simple transfers, but have two additional features:</p>
+<ul>
+<li>An arbitrary byte array can be appended to the transfer, which can be used to easily pass additional information to the recipient contract.</li>
+<li>The CCT VAA redeem can only be performed by the recipient contract, as opposed to basic transfers, which can be performed by any caller. This ensures that any additional operations which the contract wants to perform as part of the redeem transaction must be executed.</li>
+</ul>
+<p>In short, basic transfers are intended to transfer tokens from one wallet to another, whereas CCTs are meant to transfer tokens from one smart contract to another. If you're writing an xDapp, you probably want to use CCTs for the most part.</p>
+<p>In the next section. We'll discuss Wormchain, and some of the upcoming features it will enable.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="wormchain"><a class="header" href="#wormchain">Wormchain</a></h1>
+<p>Wormchain is a purpose-built cosmos blockchain for the Wormhole ecosystem. It has two primary functions:</p>
+<ol>
+<li>Provide a public and auditable mechanism for users to interact with the Guardian Network.</li>
+<li>Create a robust platform for on-chain infrastructure which would be infeasible to build elsewhere.</li>
+</ol>
+<p>Wormchain is less relevant to xDapp developers than some other parts of the ecosystem, but it will become an increasingly important component as Wormhole matures and more features are added. Wormchain is built to provide things like:</p>
+<pre><code>- Redundant security checks
+- Governance
+- Interactions with 'legacy' chains like Bitcoin
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="wormhole-development-overview"><a class="header" href="#wormhole-development-overview">Wormhole Development Overview</a></h1>
+<p>To get started with cross chain development, first you're going to need a local environment to test your xdapp code on. The general flow for a cross chain message goes from an application deployed to chain A, to the Wormhole contract on chain A, to the Guardian network, then submitted to chain B. </p>
+<p>To simulate all of these things locally, we need to be able to deploy some chains, deploy the Wormhole contracts to these chains, and then run atleast one Wormhole validator to pick up messages. Later, we might even introduce a relayer to automatically submit messages, but that's currently only supported for Mainnet Token Bridge transfers for native and stable coins. Developers currently have to use either a manual relayer method or an app sepecific relayer (but more on that in the Relayer section).</p>
+<p>First, before we setup an xdapp project, we'll need to choose a local environment to run the Wormhole Guardian Network. We can use either Wormhole Local Validator or Tilt.</p>
+<ul>
+<li><a href="development/./wormhole-local-validator.html">Wormhole Local Validator</a>: This is the simplest, custom environment. It's BYOB (Bring your own Blockchain), where you can run your own local validator nodes and connect them to a single guardian running on docker. Initial setup can take upwards of 500 seconds, but after the image is built, bringing it up and down is usually &lt;1 minute. It requires installing the software for the validator nodes locally on your computer or somewhere to run them.</li>
+<li><a href="development/./tilt/overview.html">Tilt</a>: A full fledged Kubernetes deployment of <em>every</em> chain connected to Wormhole, along with a Guardian node. Usually takes 30 min to spin up fully, but comes with all chains running out of the box. </li>
+</ul>
+<h3 id="testnet"><a class="header" href="#testnet">Testnet</a></h3>
+<p>If you want to test on the various test and devnets of existing connected chains, there's a single guardian node watching for transactions on various test networks. You can find the contracts <a href="development/../reference/contracts.html">here</a> and the rpc node <a href="development/../reference/rpcnodes.html">here</a>.</p>
+<p>One thing to watch out for is that because testnet only has a single guardian running, there's a small chance that your VAAs do not get processed. This rate is <em>not</em> indiciative of performance on mainnet, where there are 19 guardians watching for transactions. </p>
+<h3 id="mainnet"><a class="header" href="#mainnet">Mainnet</a></h3>
+<p>When you're ready to deploy to mainnet, you can find the mainnet contracts <a href="development/../reference/contracts.html">here</a> and the mainnet rpc nodes <a href="development/../reference/rpcnodes.html">here</a>.</p>
+<h2 id="next-steps"><a class="header" href="#next-steps">Next Steps</a></h2>
+<p>To get started, first clone the a local host environment (WLV or Tilt), then proceed to the first project, the <a href="development/../projects/evm-messenger/overview.html">evm-messenger</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="wormhole-local-validator"><a class="header" href="#wormhole-local-validator">Wormhole Local Validator</a></h1>
+<p>The Wormhole Local Validator is available <a href="https://github.com/certusone/xdapp-book/tree/main/projects/wormhole-local-validator">here</a>. It contains the wormhole local validator, along with code to spin up EVM and Solana local validators, and deployment code to add Wormhole contracts to those new chains.</p>
+<h2 id="dependencies"><a class="header" href="#dependencies">Dependencies</a></h2>
+<p>You will also need Docker; you can get either <a href="https://docs.docker.com/get-docker/">Docker Desktop</a> if you're developing on your computer or if you're in a headless VM, install <a href="https://docs.docker.com/engine/">Docker Engine</a>. Make sure to have Docker running before you run any of the following commands.</p>
+<p>To run EVM chains you will need <a href="https://github.com/trufflesuite/ganache#command-line-use">Ganache</a>.<br />
+To run Solana chains you will need <a href="https://docs.solana.com/cli/install-solana-cli-tools">Solana</a> installed. </p>
+<h2 id="run-evm-chains"><a class="header" href="#run-evm-chains">Run EVM Chains</a></h2>
+<p><code>npm run evm</code> will start up two EVM chains with Wormhole Chain ID 2 (like ETH) and Wormhole Chain ID 4 (like BSC) and deploy the Wormhole Core Bridge (<code>0xC89Ce4735882C9F0f0FE26686c53074E09B0D550</code>), Token Bridge (<code>0x0290FB167208Af455bB137780163b7B7a9a10C16</code>), and NFT Bridge (<code>0x26b4afb60d6c903165150c6f0aa14f8016be4aec</code>) contracts to them. They'll also deploy a Test Token (TKN at <code>0x2D8BE6BF0baA74e0A907016679CaE9190e80dD0A</code>), test NFT (<code>0x5b9b42d6e4B2e4Bf8d42Eba32D46918e10899B66</code>), and WETH Contract (<code>0xDDb64fE46a91D46ee29420539FC25FD07c5FEa3E</code>)</p>
+<p>They'll use the standard Wormhole test mnemonic (<code>myth like bonus scare over problem client lizard pioneer submit female collect</code>) and use the first key for deployment and payment (Public Key: <code>0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1</code>, Private Key: (<code>0x4f3edf983ac636a65a842ce7c78d9aa706d3b113bce9c46f30d7d21715b23b1d</code>)) </p>
+<h2 id="run-solana-chain"><a class="header" href="#run-solana-chain">Run Solana Chain</a></h2>
+<p><code>npm run solana</code> will start up a Solana chain and load in Core Bridge (<code>Bridge1p5gheXUvJ6jGWGeCsgPKgnE3YgdGKRVCMY9o</code>) and Token Bridge (<code>B6RHG3mfcckmrYN1UhmJzyS1XX3fZKbkeUcpJe9Sy3FE</code>) accounts.
+TODO: Add emitter registrations for token bridge.</p>
+<h2 id="run-wormhole"><a class="header" href="#run-wormhole">Run Wormhole</a></h2>
+<p>After you have the dependencies installed and the chains running, you can run Wormhole.</p>
+<p>Simply run <code>npm run wormhole</code>, which will pull and run the Wormhole Guardian docker image.</p>
+<h3 id="faq--common-problems"><a class="header" href="#faq--common-problems">FAQ &amp; Common Problems</a></h3>
+<ul>
+<li>Anvil isn't working<br />
+While we recommend Foundry's Forge tool for compiling and deploying code elsewhere in these docs, we <em>do not</em> at this time recommend using anvil for guardiand; this is because guardiand is spec'd against go-ethereum, and anvil is out of spec for how it reports block headers (non left padding to normalize length), which means go-ethereum freaks out and can't read anvil headers. </li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tilt-development-environment"><a class="header" href="#tilt-development-environment">Tilt Development Environment</a></h1>
+<p>For a quicker development cycle, specially when developing your own blockchain programs that interact with Wormhole or Portal contracts, consider setting up the Tilt Devnet Environment. </p>
+<p>Tilt is a kubernetes and docker orchestration tool that will spin up all the Wormhole supported chains in containers, alongside a Guardian node that will observe and store VAAs. </p>
+<p>This devnet environment can be set up on your computer or in a Linux VM that has at least 4 CPU cores and 16GB of RAM.</p>
+<p>If you do decide to host the devnet in a remote VM, remember to pass in the host and webHost flags during the tilt up step and allow incoming traffic on your VM to be able to access the various RPC endpoints on the Pods.</p>
+<pre><code class="language-sh">tilt up --host=0.0.0.0 -- --webHost=0.0.0.0
+</code></pre>
+<p>While the exact commands for each environment might differ, the basic setup process for tilt is the following:</p>
+<ol>
+<li>Install Go</li>
+<li>Install Docker Desktop (Or Docker CE)<br />
+a. Install Minikube if Docker CE</li>
+<li>Install Tilt</li>
+<li>Clone Wormhole Repo and Tilt Up</li>
+</ol>
+<h2 id="faq"><a class="header" href="#faq">FAQ</a></h2>
+<h3 id="where-are-fantomcelopolygoninsert-other-evm-chains"><a class="header" href="#where-are-fantomcelopolygoninsert-other-evm-chains">Where are Fantom/Celo/Polygon/...(insert other EVM chains)</a></h3>
+<p>For all chains that support EVM the smart contract development environment is effectively the same. For changes in gas costs and transaction times, consider testing contract logic on devnet and then using testnet environments to get chain specific answers. </p>
+<h3 id="solana-is-taking-forever"><a class="header" href="#solana-is-taking-forever">Solana is taking forever!</a></h3>
+<p>Unfortunately, due to Solana's architecture, it often takes 25-40min to build the Solana pod. Consider increasing CPU cores assigned to devnet for a faster build.</p>
+<h3 id="solana-program-deploy-doesnt-work"><a class="header" href="#solana-program-deploy-doesnt-work">Solana program deploy doesn't work</a></h3>
+<p>Kubernetes doesn't currently allow port forwarding for UDP ports, which is what Solana uses for <code>solana program deploy</code>. Instead, we recommend using <a href="https://github.com/acheroncrypto/solana-deployer">Solana Deployer</a>. Not only does this deploy programs over regular RPC thus bypassing UDP port requirements, it's also much faster than <code>solana program deploy</code>.</p>
+<h3 id="reset-state-for-a-pod"><a class="header" href="#reset-state-for-a-pod">Reset state for a pod</a></h3>
+<p>If you want to quickly iterate and don't want to bring tilt down and back up, you can reset state for a pod by clicking the 🔄 button next to the pod name in Tilt UI.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="macos-setup"><a class="header" href="#macos-setup">macOS Setup</a></h1>
+<h2 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h2>
+<p>You'll need to have <code>homebrew</code> on your system if you don't already. You can grab it with:</p>
+<pre><code class="language-sh">/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+</code></pre>
+<h2 id="install-go"><a class="header" href="#install-go">Install Go</a></h2>
+<pre><code class="language-sh">brew install go
+</code></pre>
+<h2 id="install-docker"><a class="header" href="#install-docker">Install Docker</a></h2>
+<pre><code class="language-sh">brew install docker
+</code></pre>
+<p>After installation, go into Docker settings and switch ON <code>kubernetes</code>. Also configure Docker to have 4 CPUs and ~16GB of RAM. </p>
+<h2 id="install-tilt"><a class="header" href="#install-tilt">Install Tilt</a></h2>
+<pre><code class="language-sh">brew install tilt
+</code></pre>
+<h2 id="clone-wormhole-repo-and-start-tilt"><a class="header" href="#clone-wormhole-repo-and-start-tilt">Clone Wormhole Repo and Start Tilt</a></h2>
+<pre><code class="language-sh">git clone --branch dev.v2 https://github.com/certusone/wormhole.git
+</code></pre>
+<pre><code class="language-sh">cd wormhole/
+tilt up
+</code></pre>
+<p>You'll be able to access the Tilt UI at 
+<code>localhost:10350</code></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="linux-devnet-setup"><a class="header" href="#linux-devnet-setup">Linux Devnet Setup</a></h1>
+<h3 id="experimental-setup-script"><a class="header" href="#experimental-setup-script">Experimental Setup Script</a></h3>
+<p>There's an experimental one command setup script that should install dependencies for you on Linux and configure everything properly. This is only recommended if you're running headless Linux and unable to use Docker Desktop, as with Docker Desktop you don't need <code>minikube</code> and can just enable Kubernetes from Docker.</p>
+<pre><code class="language-sh">curl $URL | sh install_linux.sh
+cd wormhole/
+./tilt.sh
+</code></pre>
+<h2 id="regular-setup"><a class="header" href="#regular-setup">Regular Setup</a></h2>
+<h3 id="1-install-go"><a class="header" href="#1-install-go">1. Install Go</a></h3>
+<pre><code class="language-sh">wget https://go.dev/dl/go1.18.1.linux-amd64.tar.gz
+rm -rf /usr/local/go &amp;&amp; tar -C /usr/local -xzf go1.18.1.linux-amd64.tar.gz
+</code></pre>
+<h3 id="2-install-docker"><a class="header" href="#2-install-docker">2. Install Docker</a></h3>
+<p>If you're using Linux with a window manager, consider getting Docker Desktop instead of the following command. It comes with Kubernetes built in and you won't need to download <code>minikube</code>. It's recommended to have at least 4 CPUs and 16GB RAM dedicated to Docker. </p>
+<p>Also make sure that you set up docker as a NON ROOT USER! </p>
+<p><a href="https://docs.docker.com/engine/install/ubuntu/#installation-methods">https://docs.docker.com/engine/install/ubuntu/#installation-methods</a></p>
+<h3 id="3-docker-desktop-install"><a class="header" href="#3-docker-desktop-install">3. (Docker Desktop Install)</a></h3>
+<p>Enable Kubernetes by going into Settings &gt; Kubernetes</p>
+<h3 id="3-non-docker-desktop"><a class="header" href="#3-non-docker-desktop">3. (Non Docker Desktop)</a></h3>
+<p>Install <a href="https://minikube.sigs.k8s.io/docs/start/"><code>minikube</code></a></p>
+<p>Configure minikube</p>
+<pre><code>minikube start --driver=docker --kubernetes-version=v1.23.3 --cpus=4 --memory=14G --disk-size=10G --namespace=wormhole
+</code></pre>
+<p>If you reboot your VM you'll need to run the <code>minikube start</code> command again before you bring up tilt.</p>
+<h3 id="4-install-tilt"><a class="header" href="#4-install-tilt">4. Install Tilt</a></h3>
+<p>Install tilt by copy pasting this into the Terminal</p>
+<pre><code class="language-sh">curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
+</code></pre>
+<h3 id="5-clone-the-wormhole-repo-and-start-tilt"><a class="header" href="#5-clone-the-wormhole-repo-and-start-tilt">5. Clone the Wormhole Repo and start Tilt</a></h3>
+<pre><code class="language-sh">git clone --branch dev.v2 https://github.com/certusone/wormhole.git
+</code></pre>
+<p>If you're running tilt on your machine </p>
+<pre><code class="language-sh">cd wormhole/
+tilt up
+</code></pre>
+<p>If you're running tilt in a VM, we need to pass in some extra flags to enable Tilt to listen to incoming traffic from external addresses. </p>
+<pre><code class="language-sh">cd wormhole
+tilt up --host=0.0.0.0 -- --webHost=0.0.0.0
+</code></pre>
+<p>You can now access the Tilt UI at either your <code>localhost:10350</code> or <code>vm_external_ip:10350</code>. </p>
+<p>If the VM's external IP doesn't work, check firewall and port settings to make sure your VM allows incoming traffic.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="contracts-and-accounts"><a class="header" href="#contracts-and-accounts">Contracts and Accounts</a></h1>
+<p>The devnet environment deploys the Wormhole and Portal contracts to each of the chains at the same addresses every time. </p>
+<p>It also funds specific wallets with funds. </p>
+<h2 id="tilt"><a class="header" href="#tilt">Tilt</a></h2>
+<h2 id="guardian"><a class="header" href="#guardian">Guardian</a></h2>
+<ul>
+<li>REST Port: 7071</li>
+<li>gRPC Port: 7070</li>
+</ul>
+<h2 id="eth0"><a class="header" href="#eth0">ETH0</a></h2>
+<ul>
+<li>RPC Port: 8545</li>
+</ul>
+<h2 id="eth1"><a class="header" href="#eth1">ETH1</a></h2>
+<ul>
+<li>RPC Port: 8546</li>
+</ul>
+<h2 id="solana"><a class="header" href="#solana">Solana</a></h2>
+<ul>
+<li>RPC Port: 8899</li>
+</ul>
+<h2 id="algorand"><a class="header" href="#algorand">Algorand</a></h2>
+<ul>
+<li>RPC Port: </li>
+</ul>
+<h2 id="terra"><a class="header" href="#terra">Terra</a></h2>
+<ul>
+<li>RPC Port: </li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="xdapp-scaffold"><a class="header" href="#xdapp-scaffold">xDapp Scaffold</a></h1>
+<p>To help you get started with cross chain development, we've provided a template project in <code>projects/xdapp-starter</code>. All the sample projects will be made using this template, so check them out if you want to get a feel for how the various modules interact with each other.</p>
+<p>The template uses npm workspaces to setup a main project with subdirectories for each chain you want to interact with. This allows you to initialize each subdirectory using whatever scaffolding tool you want for each individual chain, and orchestration code in a common directory. </p>
+<p>Let's break down what's in the <code>xdapp-starter</code> project:</p>
+<h3 id="chains"><a class="header" href="#chains">chains/</a></h3>
+<ul>
+<li>This folder contains the subdirectories for chain specific code. For example, I might use the <code>anchor</code> tool to <code>anchor init solana-project</code> within the chains/ directory.</li>
+</ul>
+<h3 id="handlers"><a class="header" href="#handlers">handlers/</a></h3>
+<p>The handlers folder contains the js client code to deal with each chain's specific needs. They expose a common API that we can consume in <code>starter.js</code> for code cleanliness.</p>
+<p>They all take in a context object that's made up of the</p>
+<h3 id="orchestratorjs"><a class="header" href="#orchestratorjs">orchestrator.js</a></h3>
+<p>This file parses command line args and filters calls to chain management handlers. </p>
+<h3 id="xdappconfigjson"><a class="header" href="#xdappconfigjson">xdapp.config.json</a></h3>
+<p>The config file contains all the information about the network rpc nodes, accounts, and other constants used to communicate with contracts deployed to the selected chains.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="overview-of-sending-messages"><a class="header" href="#overview-of-sending-messages">Overview of Sending Messages</a></h1>
+<p>While the specific code varies chain by chain, the basic flow of sending a message requires your contract to interact with the Core Bridge contract deployed on each chain to emit a VAA.</p>
+<p>To emit a VAA requires three pieces of information:</p>
+<ol>
+<li>Nonce (u32)
+<ul>
+<li>The nonce is a random number assigned to each message. This allows the receiving contract a way to make sure it doesn't double process messages.</li>
+</ul>
+</li>
+<li>Consistency (u8)
+<ul>
+<li>This is the number of blocks for Guardians to wait before they sign the message. Higher consistencies mean more security against blockchain reorgs. For example, if this is set too low, and the block you're emitting from reorgs, then it's possible that even though the message was emitted and signed by the Guardians and processed on the receiving chain, no record of it exists on the emitting chain. If you were sending tokens across, this would allow for double spend attacks. </li>
+</ul>
+</li>
+<li>Payload (bytes[])
+<ul>
+<li>This is a payload of raw bytes that you want to emit. It's up to the receiving contract to know how to parse it.</li>
+</ul>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sending-messages-evm"><a class="header" href="#sending-messages-evm">Sending Messages: EVM</a></h1>
+<p>To send messages from EVM, first we have to download the Core Bridge interfaces. We need two interfaces, <a href="https://github.com/certusone/wormhole/raw/dev.v2/ethereum/contracts/interfaces/IWormhole.sol">IWormhole.sol</a> and <a href="https://github.com/certusone/wormhole/raw/dev.v2/ethereum/contracts/Structs.sol">Structs.sol</a></p>
+<p>In your xdapp-starter, place those files in </p>
+<pre><code>- chains/
+    - evm/
+        - src/
+            - Wormhole/
+                - IWormhole.sol
+                - Structs.sol
+</code></pre>
+<p>also, let's modify the IWormhole.sol file to update the import for Structs.sol.</p>
+<pre><code class="language-solidity">// contracts/Messages.sol
+// SPDX-License-Identifier: Apache 2
+
+pragma solidity ^0.8.0;
+
+import &quot;./Structs.sol&quot;;
+
+..
+
+</code></pre>
+<p>Now, let's create a new contract in our src/ folder <code>Messenger.sol</code>. In this contract, we also create a uint32 nonce. You can think of this nonce like a message id, it's just a number that let's the receiving contract know if it's already processed a message. </p>
+<p>Also we'll set the consistency level here to 1, because we're just testing and want the Guardians to sign this VAA as soon as they see it, but if we were deploying to production, we might want to match this level to the deployed chain's finality guarantees.</p>
+<pre><code class="language-solidity">
+//SPDX-License-Identifier: Unlicense
+pragma solidity ^0.8.0;
+
+import &quot;./Wormhole/IWormhole.sol&quot;;
+
+contract Messenger {
+    //This is the Tilt Devnet address constant. 
+    //Replace this address with relevant testnet or mainnet address of the chain you're deploying too.
+    address private wormhole_core_bridge_address = address(0xC89Ce4735882C9F0f0FE26686c53074E09B0D550);
+
+    IWormhole core_bridge = IWormhole(wormhole_core_bridge_address);
+
+    uint32 nonce = 0;
+
+    constructor(){}
+
+    function sendMsg(bytes memory str) public returns (uint64 sequence) {
+        uint8 consistency_level = 1;
+        sequence = core_bridge.publishMessage(nonce, str, consistency_level);
+        nonce = nonce+1;
+    }
+}
+
+
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="registering-emitters"><a class="header" href="#registering-emitters">Registering Emitters</a></h1>
+<p>This is not strictly required, but when writing xDapps, you want to listen for messages from <em>specific</em> apps on other chains, otherwise attacks could create fake applications that emit messages that <em>look</em> like what we expect, but have fake payloads. </p>
+<p>To do this, we register the sending contract's addresses with the receiving contracts. Because each VAA has the contract address that asked the core bridge to <em>emit</em> the VAA, we call the sending contracts <em>emitters</em>. Also, the emitters you're listening to <em>do not</em> need to be your own contracts. You might want to listen to the emits of a different xDapp, in which case you'd register it's address in your code. </p>
+<p>Then, when receiving messages, we can check the VAA being submitted, and make sure that the VAA being submitted came from one of the contracts we were expecting and <em>from the chain</em> we were expecting.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="registering-emitters-evm"><a class="header" href="#registering-emitters-evm">Registering Emitters: EVM</a></h1>
+<p>Specifying applications that our EVM application is allowed to listen to is a fairly simple process; We can create a mapping of chainId to bytes32 addresses of the relevant contracts on other chains. The chainId used here is the <em>wormhole</em> chainId, and the address used here is the address in <em>bytes</em>.</p>
+<pre><code class="language-solidity">
+contract Messenger {
+    mapping(uint16 =&gt; bytes32) _applicationContracts;
+
+    address owner;
+    constructor(){
+        owner = msg.sender;
+    }
+    
+    /**
+        Registers it's sibling applications on other chains as the only ones that can send this instance messages
+    */
+
+    function registerApplicationContracts(uint16 chainId, bytes32 applicationAddr) public {
+        require(msg.sender == owner, &quot;Only owner can register new chains!&quot;);
+        _applicationContracts[chainId] = applicationAddr;
+    }
+}
+</code></pre>
+<p>If you have more than one address per chainId that you want to listen to, consider making the mapping into bytes32[]. </p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="relaying-messages"><a class="header" href="#relaying-messages">Relaying Messages</a></h1>
+<p>Relaying Messages can be done one of three ways:</p>
+<ol>
+<li>
+<p>Manual Relaying </p>
+<p>Manual Relaying is usally done on the front end, and has the front end fetch the VAA it just created and then submit on the target chain. This means the user ends up paying for the gas fee to submit the tx on the target chain and has to go through the additional step. </p>
+</li>
+<li>
+<p>Protocol Specific Relayers</p>
+<p>Protocols and Apps can run their own relayers, listening to messages as they are created by the Core Bridge and submitting them to their application on the target chain. This is the ideal user experience but means more work for the developer.</p>
+</li>
+<li>
+<p>Generic Relayers</p>
+<p>Generic Relayers can pick up any app or protocol's messages and submit them to the target chain for a fee. This is the ideal developer and user experience, but still being developed. </p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="overview-of-receving-messages"><a class="header" href="#overview-of-receving-messages">Overview of Receving Messages</a></h1>
+<p>The basic flow of receving messages requires you (or a relayer!) to submit the VAA to your application contract. This contract then calls the Core Bridge on the receving chain to check the message signatures against the stored guardian set signatures. </p>
+<p>If those checks pass, then the application can check to see if it's a message that's already been processed before by checking it's sequence number against a store list of processed message sequence numbers. </p>
+<p>The final optional check is to make sure that the message came from an application from the source chain that we were expecting. Usually this is our own application, and should be registered during initialization steps (see <a href="development/messages/receiving/../registration/overview.html">registration</a>). </p>
+<p>After we have ensured all those things are correct, we can go ahead and process the message according to the business logic in our application.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="receving-messages-on-evm"><a class="header" href="#receving-messages-on-evm">Receving Messages on EVM</a></h1>
+<p>To receive messages in EVM we need to implement a function <code>receiveMsg</code>. The name of this function is arbitrary, any function name works as long as your relayer knows what to call on the application contract when submitting messages. </p>
+<p>This function will take in an encoded set of <code>bytes</code> as the VAA and then call the <code>parseAndVerifyVM</code> function on the Core Bridge to validate the message.</p>
+<pre><code class="language-solidity">
+    function receiveEncodedMsg(bytes memory encodedMsg) public {
+        (IWormhole.VM memory vm, bool valid, string memory reason) = core_bridge.parseAndVerifyVM(encodedMsg);
+        
+        //1. Check Wormhole Guardian Signatures
+        //  If the VM is NOT valid, will return the reason it's not valid
+        //  If the VM IS valid, reason will be blank
+        require(valid, reason);
+
+        //2. Check if the Emitter Chain contract is registered
+        require(_applicationContracts[vm.emitterChainId] == vm.emitterAddress, &quot;Invalid Emitter Address!&quot;);
+    
+        //3. Check that the message hasn't already been processed
+        require(!_completedMessages[vm.hash], &quot;Message already processed&quot;);
+        _completedMessages[vm.hash] = true;
+
+        //Process the message. In this case, we just store the string in the VAA to storage
+        current_msg = string(vm.payload);
+    }
+
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="projects"><a class="header" href="#projects">Projects</a></h1>
+<p>The projects for this repository are located <a href="https://github.com/certusone/xdapp-book/tree/main/projects">here</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="evm-messenger"><a class="header" href="#evm-messenger">EVM Messenger</a></h1>
+<p>The EVM messenger project is a very simple contract that sends messages from one contract on an EVM chain to it's sibling contract on Chain B. Before you get started with this project, make sure you have a local Wormhole Guardian Network running (either <a href="projects/evm-messenger/../../development/wormhole-local-validator.html">WLV</a> or <a href="projects/evm-messenger/../../development/tilt/overview.html">Tilt</a>). If you're running WLV, you'll also need to spin up EVM0 and EVM1 so we have two EVM chains to send messages back and forth.</p>
+<p>Let's break down the files you're going to find in <a href="https://github.com/certusone/xdapp-book/tree/main/projects/evm-messenger">evm-messenger</a> folder.</p>
+<h3 id="chains-1"><a class="header" href="#chains-1">Chains</a></h3>
+<p>Firstly, the <code>chains/</code> folder contains the source code that's actually being deployed to the EVM chain. The <code>evm/</code> folder found inside was generated using <a href="https://getfoundry.sh"><code>forge init</code></a>. There's two files to of note in this folder, <code>src/Wormhole/IWormhole.sol</code> and <code>src/Messenger.sol</code>. </p>
+<p>The IWormhole file is the Wormhole Core Bridge interface and required if your app wants to be able to talk to the Wormhole Core Bridge. It outlines the functions and return values you can expect from the Wormhole contract.</p>
+<p>The second file, Messenger, we will cover in our breakdown of the EVM code <a href="projects/evm-messenger/./messenger.html">here</a>.</p>
+<h3 id="tests"><a class="header" href="#tests">Tests</a></h3>
+<p>We have a very very simple test script written in bash. It's less of a test script and more of a happy path walkthrough. It makes uses of Orchestrator.js (see below) to call the functions on our EVM contract in order. </p>
+<p>We first deploy the code, register the applications on each chain, and then send a message. </p>
+<h3 id="orchestrator"><a class="header" href="#orchestrator">Orchestrator</a></h3>
+<p>Orchestrator is a very simple js client that takes arguements from the command line to call the various functions on our contract. We'll break down everything orchestator does <a href="projects/evm-messenger/./client.html">here</a>.</p>
+<h3 id="xdappconfigjson-1"><a class="header" href="#xdappconfigjson-1">xdapp.config.json</a></h3>
+<p>This maintains some constants about the chains RPC endpoints, private keys used to deploy code, etc. Also includes the Wormhole RPC endpoint.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="messengersol"><a class="header" href="#messengersol">Messenger.sol</a></h1>
+<p>Messenger.sol an application contract on EVM that is capable of communicating with the Wormhole core bridge. </p>
+<p>We start with hard coding the Wormhole core bridge address, and creating a interfaced link to it. </p>
+<pre><code class="language-solidity">//SPDX-License-Identifier: Unlicense
+pragma solidity ^0.8.0;
+
+import &quot;./Wormhole/IWormhole.sol&quot;;
+
+contract Messenger {
+    string private current_msg;
+    address private wormhole_core_bridge_address = address(0xC89Ce4735882C9F0f0FE26686c53074E09B0D550);
+    IWormhole core_bridge = IWormhole(wormhole_core_bridge_address);
+
+    // Used to calculate the Sequence for each message sent from this contract    
+    uint32 nonce = 0;
+    // Chain ID =&gt; Application Contract mapping to ensure we only process messages from contracts we want to.
+    mapping(uint16 =&gt; bytes32) _applicationContracts;
+    address owner;
+    // Track which messages we've already processed so we don't double process messages.
+    mapping(bytes32 =&gt; bool) _completedMessages;
+}
+
+</code></pre>
+<h2 id="constructor"><a class="header" href="#constructor">Constructor</a></h2>
+<p>Nothing fancy, just setting the owner of the contract to the deployer. The owner is used later to register sibling contracts on foreign chains.</p>
+<pre><code class="language-solidity">
+constructor(){
+    owner = msg.sender;
+}
+
+</code></pre>
+<h2 id="sendmsg"><a class="header" href="#sendmsg">SendMsg</a></h2>
+<p>Takes in a bytes payload and calls the Wormhole Core Bridge to publish the bytes as a message. </p>
+<p>The <code>publishMessage()</code> function of the core_bridge take three arguements: </p>
+<ul>
+<li>Nonce: a number to uniquely identify this message, used to make sure that the target chain doesn't double process the same message</li>
+<li>Payload: the bytes payload</li>
+<li>Confirmations: the number of blocks the guardians should wait before signing this VAA. For low security applications, this number can be low, but if you're on a chain that often reorgs a high number of blocks (like Polygon) you might want to set this number high enough to ensure your transaction from the source chain doesn't get lost after the guardians sign it.</li>
+</ul>
+<pre><code class="language-solidity">function sendMsg(bytes memory str) public returns (uint64 sequence) {
+    sequence = core_bridge.publishMessage(nonce, str, 1);
+    nonce = nonce+1;
+}
+</code></pre>
+<h2 id="receiveencodedmsg"><a class="header" href="#receiveencodedmsg">ReceiveEncodedMsg</a></h2>
+<p>The receive encoded message takes in a VAA as bytes. Then it calls the Core Bridge to verify the signatures match those of the gaurdians, check that it's from a contract on a foreign chain that we actually want to listen to, and that the message hasn't been processed already. If all those checks pass, we can decode the payload (in this case we know it's a string) and set the current_msg for the contract to that payload.</p>
+<pre><code class="language-solidity">
+function receiveEncodedMsg(bytes memory encodedMsg) public {
+    (IWormhole.VM memory vm, bool valid, string memory reason) = core_bridge.parseAndVerifyVM(encodedMsg);
+    
+    //1. Check Wormhole Guardian Signatures
+    //  If the VM is NOT valid, will return the reason it's not valid
+    //  If the VM IS valid, reason will be blank
+    require(valid, reason);
+
+    //2. Check if the Emitter Chain contract is registered
+    require(_applicationContracts[vm.emitterChainId] == vm.emitterAddress, &quot;Invalid Emitter Address!&quot;);
+
+    //3. Check that the message hasn't already been processed
+    require(!_completedMessages[vm.hash], &quot;Message already processed&quot;);
+    _completedMessages[vm.hash] = true;
+
+    //Do the thing
+    current_msg = string(vm.payload);
+}
+
+
+</code></pre>
+<h2 id="getcurrentmsg"><a class="header" href="#getcurrentmsg">GetCurrentMsg</a></h2>
+<p>Simple method that just returns what the current stored message is.</p>
+<pre><code class="language-solidity">
+function getCurrentMsg() public view returns (string memory){
+    return current_msg;
+}
+
+</code></pre>
+<h2 id="registerapplicationcontracts"><a class="header" href="#registerapplicationcontracts">RegisterApplicationContracts</a></h2>
+<p>Generally, you want to register and track what contracts from foreign chains you're accepting VAAs from because anyone could deploy a contract and generate a fake VAA that looks like a real VAA you want to accept. </p>
+<pre><code class="language-solidity">
+/**
+    Registers it's sibling applications on other chains as the only ones that can send this instance messages
+    */
+function registerApplicationContracts(uint16 chainId, bytes32 applicationAddr) public {
+    require(msg.sender == owner, &quot;Only owner can register new chains!&quot;);
+    _applicationContracts[chainId] = applicationAddr;
+}
+
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="orchestratorjs-1"><a class="header" href="#orchestratorjs-1">Orchestrator.js</a></h1>
+<p>A JS client that deploys and calls the functions of the two Messenger contracts on two chains.</p>
+<h2 id="deploy"><a class="header" href="#deploy">Deploy</a></h2>
+<p>Uses <a href="https://getfoundry.sh">forge</a> to compile and deploy the code. Stores the deployed address to be used later.</p>
+<h2 id="register-chain"><a class="header" href="#register-chain">Register Chain</a></h2>
+<p>Takes the deployed address from the target chain and registers it on the source chain. No wormhole interaction is necessary for this step.</p>
+<h2 id="send-msg"><a class="header" href="#send-msg">Send Msg</a></h2>
+<p>Calls the <code>sendMsg()</code> function on the source chain, which emits a VAA. Fetches the VAA from the Wormhole guardian after it's ready, then stores it.</p>
+<h2 id="submit-vaa"><a class="header" href="#submit-vaa">Submit VAA</a></h2>
+<p>Manually relays the VAA to the target chain.</p>
+<h2 id="get-current-msg"><a class="header" href="#get-current-msg">Get Current Msg</a></h2>
+<p>Returns the chain's current message.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="portal-token-bridge-transfers"><a class="header" href="#portal-token-bridge-transfers">Portal Token Bridge Transfers</a></h1>
+<p>One of the biggest applications built on Wormhole is the Portal Token Bridge, which uses structured payloads to transfer tokens and NFTs from one wallet to another. </p>
+<h2 id="attesting-a-token"><a class="header" href="#attesting-a-token">Attesting a Token</a></h2>
+<p>Before a token can be transferred, the token need to be <em>attested</em> to another chain. To attest a token, you first create a AssetMeta VAA by calling the <code>attest()</code> function on Token Bridge. Then you take the VAA over to the receipient chain, where you call <code>createWrapped()</code> which deploys a wrapped version of the Token.</p>
+<p>This only needs to happen <em>once</em> per payload, and trying to attest a token a second time will simply result in the address of the already created Wrapped Token Address.</p>
+<h2 id="transfering-tokens"><a class="header" href="#transfering-tokens">Transfering Tokens</a></h2>
+<p>To transfer tokens, the payer of tokens first authorizes the Token Bridge contract to move the tokens on their behalf, then locks them up with the Token Bridge, which emits a VAA. This VAA can then be submitted on target chain's Token Bridge's <code>completeTransfer()</code> to mint the wrapped version of the Token.<br />
+If the token being transferred is native to the chain it's being transfered to, you'll receive the original token back, rather than a wrapped version.<br />
+When transfering tokens from Chain A to B to C, the token is only &quot;wrapped&quot; once, as every time it's attested, it's always from the chain the token is natively located on.<br />
+Usually there's two functions for transfer, <code>transfer()</code> and <code>transferNative()</code>. This is because native currencies of most blockchains (ETH on Ethereum, SOL on Solana, etc) don't follow the Token spec of that chain, so to transfer native currencies, we usually wrap them first into a tokenized version of them and then transfer.
+For transfers, there's also an arbiterFee you can set. If this fee is set, when <code>completeTransfer()</code> is called, that amount of tokens are withheld from the release of tokens on the target chain and instead given to the submitter of the message (for example, a relayer). This allows third party to submit transactions on your behalf, for a fee.</p>
+<h2 id="transfering-with-a-payload"><a class="header" href="#transfering-with-a-payload">Transfering with a Payload</a></h2>
+<p>Transfering with a Payload is much like transfering normal tokens, with two major differences. First, as the name implies, you can attach a bytes payload to the transfer message. Secondly, the <code>completeTransfer()</code> function for Transfer with Payload can <em>only</em> be called by the receipient of that VAA. This means the flow is slightly different, instead of the user calling the <code>completeTransfer()</code> function on the Token Bridge, they call a function on the application they are interacting with, which will check the payload, do what state changes it needs to make and then call <code>completeTransfer()</code> on Token Bridge to mint tokens to itself. </p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="evm-attesting-a-token"><a class="header" href="#evm-attesting-a-token">EVM: Attesting a Token</a></h1>
+<p>Attesting a token from EVM is fairly simple, and usually done via the Portal UI since it's a step that only needs to happen once per Token. </p>
+<p>If for whatever reason you need to do it programmatically, you can also do it using the JS SDK:</p>
+<p>The first step is to create an AttestMeta VAA. We do this by calling <code>attestFromEth()</code> function from the JS SDK and passing in the Token Bridge address, a Ethers signer object, and the address of the Token we want to attest:</p>
+<pre><code class="language-js">
+const networkTokenAttestation = await attestFromEth(
+    network.tokenBridgeAddress, // Token Bridge Address
+    signer, //Private Key to sign and pay for TX + RPC Endpoint
+    network.testToken //Token Address
+);
+
+</code></pre>
+<p>Anyone can attest any token on the network.</p>
+<p>To complete the Attestation, we grab the VAA that the <code>attestFromEth()</code> function generates by getting the Emitter address of the Token Bridge and the Sequence from the logs of the transaction receipt. We then fetch against a guardian REST endpoint. It could take a couple seconds (up to 30s!) for the guardian to see and sign the VAA, so it's a good idea to poll the guardian every couple seconds until the VAA is found. </p>
+<pre><code class="language-js">
+const emitterAddr = getEmitterAddressEth(network.tokenBridgeAddress);
+const seq = parseSequenceFromLogEth(networkTokenAttestation, network.bridgeAddress);
+const vaaURL =  `${config.wormhole.restAddress}/v1/signed_vaa/${network.wormholeChainId}/${emitterAddr}/${seq}`;
+console.log(&quot;Searching for: &quot;, vaaURL);
+let vaaBytes = await (await fetch(vaaURL)).json();
+while(!vaaBytes.vaaBytes){
+    console.log(&quot;VAA not found, retrying in 5s!&quot;);
+    await new Promise((r) =&gt; setTimeout(r, 5000)); //Timeout to let Guardiand pick up log and have VAA ready
+    vaaBytes = await (await fetch(vaaURL)).json();
+}
+
+</code></pre>
+<p>Next, we submit the VAA onto the target chain to create a wrapped version of the Token by calling <code>createWrapped()</code>. On an EVM chain, this will deploy a Portal Wrapped Token contract who's mint authority is the Portal Token Bridge on that chain. Sometimes this transaction throws an unpredicatable gas price error, so it's a good idea to set a high gas limit.</p>
+<p>After the wrapped token is created, you can get the new wrapped token address by calling the <code>wrappedAsset()</code> function of the TokenBridge.</p>
+<pre><code class="language-js">
+await targetTokenBridge.createWrapped(Buffer.from(vaaBytes.vaaBytes, &quot;base64&quot;), {
+    gasLimit: 2000000
+});
+await new Promise((r) =&gt; setTimeout(r, 5000)); //Time out to let block propogate
+const wrappedTokenAddress = await targetTokenBridge.wrappedAsset(
+    network.wormholeChainId,
+    Buffer.from(
+        tryNativeToHexString(network.testToken, &quot;ethereum&quot;),
+        &quot;hex&quot;
+    )
+);
+console.log(&quot;Wrapped token created at: &quot;, wrappedTokenAddress);
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="evm-transferring-a-token"><a class="header" href="#evm-transferring-a-token">EVM: Transferring a Token</a></h1>
+<p>WARNING: To be able to successfully transfer a token from Chain A to Chain B, make sure you <a href="development/portal/evm/./attestingToken.html">attest</a> it first. Otherwise the Token may be transferred, but you won't be able to claim it til it's attested.</p>
+<p>One big gotcha new EVM developers usually run into when working with ERC20 tokens is that because EVM uses unsigned integers, there's no concept of decimals. Therefore, tokens usually have up to 18 zeros behind them to denote up to 18 decimal places. Wormhole normalizes this to <em>eight</em> zeros, with transfer amounts rounded down to the nearest 8the decimal. </p>
+<p>To wrap the Token Bridge functions in your contract, you can use the Token Bridge interfaces provided under <a href="https://github.com/certusone/xdapp-book/tree/main/projects/evm-tokenbridge/chains/evm/src/Wormhole"><code>projects/evm-tokenbridge/chains/evm/src/Wormhole</code></a> folder of the xDapp Book repository.</p>
+<pre><code class="language-solidity">//SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import &quot;@openzeppelin/contracts/token/ERC20/presets/ERC20PresetMinterPauser.sol&quot;;
+import &quot;./Wormhole/ITokenBridge.sol&quot;;
+import &quot;./Wormhole/PortalWrappedToken.sol&quot;;
+
+contract Treasury {
+
+    address private token_bridge_address = address(0x0290FB167208Af455bB137780163b7B7a9a10C16);
+    ITokenBridge token_bridge = ITokenBridge(token_bridge_address);
+    address private TKN_address = address(0x2D8BE6BF0baA74e0A907016679CaE9190e80dD0A); 
+    ERC20PresetMinterPauser TKN = ERC20PresetMinterPauser(TKN_address);
+
+    uint32 nonce = 0;
+
+    function bridgeToken(uint256 amt, uint16 receipientChainId, bytes32 recipient) public returns (uint64 sequence) {
+        nonce += 1;
+        return token_bridge.transferTokens(TKN_address, amt, receipientChainId, recipient, 0, nonce);
+    }   
+
+    function approveTokenBridge(uint256 amt) public returns (bool) {
+        return TKN.approve(token_bridge_address, amt);
+    }
+}
+
+</code></pre>
+<p>To transfer a token, first we have to <em>approve</em> the Token Bridge to be able to spend that Token on our behalf (so it can transfer tokens form our contract to tself). Make sure the <code>bridgeAmt</code> properly takes into account decimals for the ERC20 token.</p>
+<pre><code class="language-js">// Here we are approving and transfering 50 tokens. The ERC20 token we are transfering has 18 decimal places.
+const bridgeAmt = ethers.utils.parseUnits(&quot;50&quot;, &quot;18&quot;);
+
+await treasury.approveTokenBridge(bridgeAmt, {
+    gasLimit: 2000000,
+});
+
+</code></pre>
+<p>Then we simply call <code>transfer</code> to create the transfer VAA and fetch it from the guardians when it's ready. Note that the target receipient is a Wormhole normalized hex address left-padded to 32 bytes. </p>
+<pre><code class="language-js">const targetRecepient = Buffer.from(tryNativeToHexString(targetDeployment.deployedAddress, &quot;ethereum&quot;), 'hex');
+
+const tx = await (await treasury.bridgeToken(
+    bridgeAmt,
+    targetNetwork.wormholeChainId,
+    targetRecepient
+)).wait();
+const emitterAddr = getEmitterAddressEth(network.tokenBridgeAddress);
+const seq = parseSequenceFromLogEth(tx, network.bridgeAddress);
+const vaaURL =  `${config.wormhole.restAddress}/v1/signed_vaa/${network.wormholeChainId}/${emitterAddr}/${seq}`;
+let vaaBytes = await (await fetch(vaaURL)).json();
+while(!vaaBytes.vaaBytes){
+    console.log(&quot;VAA not found, retrying in 5s!&quot;);
+    await new Promise((r) =&gt; setTimeout(r, 5000)); //Timeout to let Guardiand pick up log and have VAA ready
+    vaaBytes = await (await fetch(vaaURL)).json();
+}
+
+</code></pre>
+<p>After we've fetched the VAA, we can call the <code>completeTransfer()</code> function on the target chain if it's an EVM.</p>
+<pre><code class="language-js">
+const completeTransferTx = await targetTokenBridge.completeTransfer(Buffer.from(vaaBytes.vaaBytes, &quot;base64&quot;));
+
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tools"><a class="header" href="#tools">Tools</a></h1>
+<p>There's various tools in the Wormhole ecosystem that can help you in developing xDapps.</p>
+<h1 id="testnet-1"><a class="header" href="#testnet-1">Testnet</a></h1>
+<p>Wormhole has deployed Core Bridge, Token Bridge, and NFT Bridge contracts on the various testnets of the chains that Wormhole connects to. You can see the deployed addresses <a href="reference/./contracts.html">here</a>. There's only a single guardian that oversees the testnets, so you might get a higher rate of missed VAAs than you will on mainnet. </p>
+<h1 id="wormhole-explorer"><a class="header" href="#wormhole-explorer">Wormhole Explorer</a></h1>
+<p>Wormhole Explorer is a tool that will help you parse VAAs after they've been picked up the Guardian network. It's available <a href="https://wormholenetwork.com/en/explorer">here</a>.</p>
+<h1 id="testnet-bridge-ui"><a class="header" href="#testnet-bridge-ui">Testnet Bridge UI</a></h1>
+<p>If you'd like to try out Portal Bridge on Testnet, there's a UI you can use to attest and transfer tokens for testnet. It's hosted <a href="https://certusone.github.io/wormhole">here</a>.</p>
+<h1 id="tilt-1"><a class="header" href="#tilt-1">Tilt</a></h1>
+<p>Tilt is a Kubernetes based tool that runs a copy of every chain along side a guardian node to create a simulated testing environment. To get it setup and test against it, check it out <a href="reference/../development/tilt/overview.html">here</a>.</p>
+<h1 id="wormhole-sdk"><a class="header" href="#wormhole-sdk">Wormhole SDK</a></h1>
+<p>The SDK is a set of Javascript tools to help you do Token Bridge transfers, fetch and submit VAAs from one chain to another. You can install it via NPM <a href="https://www.npmjs.com/package/@certusone/wormhole-sdk">here</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="repository"><a class="header" href="#repository">Repository</a></h1>
+<p>Wormhole core repository is <a href="https://github.com/certusone/wormhole">here</a>.</p>
+<h1 id="design-documents"><a class="header" href="#design-documents">Design Documents</a></h1>
+<p>Wormhole's components are designed via specifications that can be found <a href="https://github.com/certusone/wormhole/tree/dev.v2/whitepapers">here</a>. These outline the reasoning behind design decisions and details specifics in more technical depth.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="contracts"><a class="header" href="#contracts">Contracts</a></h1>
+<p>Here you can find the addresses for the deployed contracts on all the chains that Wormhole supports, including Testnet. 
+The SDK makes these addresses available in the <code>CONTRACTS</code> constant. </p>
+<h2 id="mainnet-1"><a class="header" href="#mainnet-1">Mainnet</a></h2>
+<h3 id="core-bridge"><a class="header" href="#core-bridge">Core Bridge</a></h3>
+<table><thead><tr><th style="text-align: left">Chain Name</th><th style="text-align: left">Wormhole Chain ID</th><th style="text-align: left">Network ID</th><th style="text-align: left">Address</th></tr></thead><tbody>
+<tr><td style="text-align: left">Solana</td><td style="text-align: left">1</td><td style="text-align: left">mainnet-beta</td><td style="text-align: left">worm2ZoG2kUd4vFXhvjh93UUH596ayRfgQ2MgjNMTth</td></tr>
+<tr><td style="text-align: left">Ethereum</td><td style="text-align: left">2</td><td style="text-align: left">1</td><td style="text-align: left">0x98f3c9e6E3fAce36bAAd05FE09d375Ef1464288B</td></tr>
+<tr><td style="text-align: left">Terra</td><td style="text-align: left">3</td><td style="text-align: left">columbus-5</td><td style="text-align: left">terra1dq03ugtd40zu9hcgdzrsq6z2z4hwhc9tqk2uy5</td></tr>
+<tr><td style="text-align: left">Binance Smart Chain</td><td style="text-align: left">4</td><td style="text-align: left">56</td><td style="text-align: left">0x98f3c9e6E3fAce36bAAd05FE09d375Ef1464288B</td></tr>
+<tr><td style="text-align: left">Polygon</td><td style="text-align: left">5</td><td style="text-align: left">137</td><td style="text-align: left">0x7A4B5a56256163F07b2C80A7cA55aBE66c4ec4d7</td></tr>
+<tr><td style="text-align: left">Avalanche (C-Chain)</td><td style="text-align: left">6</td><td style="text-align: left">43114</td><td style="text-align: left">0x54a8e5f9c4CbA08F9943965859F6c34eAF03E26c</td></tr>
+<tr><td style="text-align: left">Oasis (Emerald)</td><td style="text-align: left">7</td><td style="text-align: left">4262</td><td style="text-align: left">0xfE8cD454b4A1CA468B57D79c0cc77Ef5B6f64585</td></tr>
+<tr><td style="text-align: left">Aurora</td><td style="text-align: left">9</td><td style="text-align: left">1313161554</td><td style="text-align: left">0xa321448d90d4e5b0A732867c18eA198e75CAC48E</td></tr>
+<tr><td style="text-align: left">Fantom</td><td style="text-align: left">10</td><td style="text-align: left">250</td><td style="text-align: left">0x126783A6Cb203a3E35344528B26ca3a0489a1485</td></tr>
+<tr><td style="text-align: left">Karura</td><td style="text-align: left">11</td><td style="text-align: left">686</td><td style="text-align: left">0xa321448d90d4e5b0A732867c18eA198e75CAC48E</td></tr>
+<tr><td style="text-align: left">Acala</td><td style="text-align: left">12</td><td style="text-align: left">787</td><td style="text-align: left">0xa321448d90d4e5b0A732867c18eA198e75CAC48E</td></tr>
+<tr><td style="text-align: left">Klaytn</td><td style="text-align: left">13</td><td style="text-align: left">8217</td><td style="text-align: left">0x0C21603c4f3a6387e241c0091A7EA39E43E90bb7</td></tr>
+<tr><td style="text-align: left">Celo</td><td style="text-align: left">14</td><td style="text-align: left">42220</td><td style="text-align: left">0xa321448d90d4e5b0A732867c18eA198e75CAC48E</td></tr>
+</tbody></table>
+<h3 id="token-bridge"><a class="header" href="#token-bridge">Token Bridge</a></h3>
+<table><thead><tr><th style="text-align: left">Chain Name</th><th style="text-align: left">Wormhole Chain ID</th><th style="text-align: left">Network ID</th><th style="text-align: left">Address</th></tr></thead><tbody>
+<tr><td style="text-align: left">Solana</td><td style="text-align: left">1</td><td style="text-align: left">mainnet-beta</td><td style="text-align: left">wormDTUJ6AWPNvk59vGQbDvGJmqbDTdgWgAqcLBCgUb</td></tr>
+<tr><td style="text-align: left">Ethereum</td><td style="text-align: left">2</td><td style="text-align: left">1</td><td style="text-align: left">0x3ee18B2214AFF97000D974cf647E7C347E8fa585</td></tr>
+<tr><td style="text-align: left">Terra</td><td style="text-align: left">3</td><td style="text-align: left">columbus-5</td><td style="text-align: left">terra10nmmwe8r3g99a9newtqa7a75xfgs2e8z87r2sf</td></tr>
+<tr><td style="text-align: left">Binance Smart Chain</td><td style="text-align: left">4</td><td style="text-align: left">56</td><td style="text-align: left">0xB6F6D86a8f9879A9c87f643768d9efc38c1Da6E7</td></tr>
+<tr><td style="text-align: left">Polygon</td><td style="text-align: left">5</td><td style="text-align: left">137</td><td style="text-align: left">0x5a58505a96D1dbf8dF91cB21B54419FC36e93fdE</td></tr>
+<tr><td style="text-align: left">Avalanche (C-Chain)</td><td style="text-align: left">6</td><td style="text-align: left">43114</td><td style="text-align: left">0x0e082F06FF657D94310cB8cE8B0D9a04541d8052</td></tr>
+<tr><td style="text-align: left">Oasis (Emerald)</td><td style="text-align: left">7</td><td style="text-align: left">4262</td><td style="text-align: left">0xfE8cD454b4A1CA468B57D79c0cc77Ef5B6f64585</td></tr>
+<tr><td style="text-align: left">Aurora</td><td style="text-align: left">9</td><td style="text-align: left">1313161554</td><td style="text-align: left">0x51b5123a7b0F9b2bA265f9c4C8de7D78D52f510F</td></tr>
+<tr><td style="text-align: left">Fantom</td><td style="text-align: left">10</td><td style="text-align: left">250</td><td style="text-align: left">0x7C9Fc5741288cDFdD83CeB07f3ea7e22618D79D2</td></tr>
+<tr><td style="text-align: left">Karura</td><td style="text-align: left">11</td><td style="text-align: left">686</td><td style="text-align: left">0xae9d7fe007b3327AA64A32824Aaac52C42a6E624</td></tr>
+<tr><td style="text-align: left">Acala</td><td style="text-align: left">12</td><td style="text-align: left">787</td><td style="text-align: left">0xae9d7fe007b3327AA64A32824Aaac52C42a6E624</td></tr>
+<tr><td style="text-align: left">Klaytn</td><td style="text-align: left">13</td><td style="text-align: left">8217</td><td style="text-align: left">0x5b08ac39EAED75c0439FC750d9FE7E1F9dD0193F</td></tr>
+<tr><td style="text-align: left">Celo</td><td style="text-align: left">14</td><td style="text-align: left">42220</td><td style="text-align: left">0x796Dff6D74F3E27060B71255Fe517BFb23C93eed</td></tr>
+</tbody></table>
+<h3 id="nft-bridge"><a class="header" href="#nft-bridge">NFT Bridge</a></h3>
+<table><thead><tr><th style="text-align: left">Chain Name</th><th style="text-align: left">Wormhole Chain ID</th><th style="text-align: left">Network ID</th><th style="text-align: left">Address</th></tr></thead><tbody>
+<tr><td style="text-align: left">Solana</td><td style="text-align: left">1</td><td style="text-align: left">mainnet-beta</td><td style="text-align: left">WnFt12ZrnzZrFZkt2xsNsaNWoQribnuQ5B5FrDbwDhD</td></tr>
+<tr><td style="text-align: left">Ethereum</td><td style="text-align: left">2</td><td style="text-align: left">1</td><td style="text-align: left">0x6FFd7EdE62328b3Af38FCD61461Bbfc52F5651fE</td></tr>
+<tr><td style="text-align: left">Binance Smart Chain</td><td style="text-align: left">4</td><td style="text-align: left">56</td><td style="text-align: left">0x5a58505a96D1dbf8dF91cB21B54419FC36e93fdE</td></tr>
+<tr><td style="text-align: left">Polygon</td><td style="text-align: left">5</td><td style="text-align: left">137</td><td style="text-align: left">0x90BBd86a6Fe93D3bc3ed6335935447E75fAb7fCf</td></tr>
+<tr><td style="text-align: left">Avalanche (C-Chain)</td><td style="text-align: left">6</td><td style="text-align: left">43114</td><td style="text-align: left">0xf7B6737Ca9c4e08aE573F75A97B73D7a813f5De5</td></tr>
+<tr><td style="text-align: left">Oasis (Emerald)</td><td style="text-align: left">7</td><td style="text-align: left">4262</td><td style="text-align: left">0x04952D522Ff217f40B5Ef3cbF659EcA7b952a6c1</td></tr>
+<tr><td style="text-align: left">Aurora</td><td style="text-align: left">9</td><td style="text-align: left">1313161554</td><td style="text-align: left">0x6dcC0484472523ed9Cdc017F711Bcbf909789284</td></tr>
+<tr><td style="text-align: left">Fantom</td><td style="text-align: left">10</td><td style="text-align: left">250</td><td style="text-align: left">0xA9c7119aBDa80d4a4E0C06C8F4d8cF5893234535</td></tr>
+<tr><td style="text-align: left">Karura</td><td style="text-align: left">11</td><td style="text-align: left">686</td><td style="text-align: left">0xb91e3638F82A1fACb28690b37e3aAE45d2c33808</td></tr>
+<tr><td style="text-align: left">Acala</td><td style="text-align: left">12</td><td style="text-align: left">787</td><td style="text-align: left">0xb91e3638F82A1fACb28690b37e3aAE45d2c33808</td></tr>
+<tr><td style="text-align: left">Klaytn</td><td style="text-align: left">13</td><td style="text-align: left">8217</td><td style="text-align: left">0x3c3c561757BAa0b78c5C025CdEAa4ee24C1dFfEf</td></tr>
+<tr><td style="text-align: left">Celo</td><td style="text-align: left">14</td><td style="text-align: left">42220</td><td style="text-align: left">0xA6A377d75ca5c9052c9a77ED1e865Cc25Bd97bf3</td></tr>
+</tbody></table>
+<h2 id="testnet-2"><a class="header" href="#testnet-2">Testnet</a></h2>
+<h3 id="core-bridge-1"><a class="header" href="#core-bridge-1">Core Bridge</a></h3>
+<table><thead><tr><th style="text-align: left">Chain Name</th><th style="text-align: left">Wormhole Chain ID</th><th style="text-align: left">Network ID</th><th style="text-align: left">Address</th></tr></thead><tbody>
+<tr><td style="text-align: left">Solana</td><td style="text-align: left">1</td><td style="text-align: left">devnet</td><td style="text-align: left">3u8hJUVTA4jH1wYAyUur7FFZVQ8H635K3tSHHF4ssjQ5</td></tr>
+<tr><td style="text-align: left">Ethereum (Goerli)</td><td style="text-align: left">2</td><td style="text-align: left">5</td><td style="text-align: left">0x706abc4E45D419950511e474C7B9Ed348A4a716c</td></tr>
+<tr><td style="text-align: left">Ethereum (Ropsten)</td><td style="text-align: left">10001</td><td style="text-align: left">3</td><td style="text-align: left">0x210c5F5e2AF958B4defFe715Dc621b7a3BA888c5</td></tr>
+<tr><td style="text-align: left">Terra</td><td style="text-align: left">3</td><td style="text-align: left">bombay-12</td><td style="text-align: left">terra1pd65m0q9tl3v8znnz5f5ltsfegyzah7g42cx5v</td></tr>
+<tr><td style="text-align: left">Binance Smart Chain</td><td style="text-align: left">4</td><td style="text-align: left">97</td><td style="text-align: left">0x68605AD7b15c732a30b1BbC62BE8F2A509D74b4D</td></tr>
+<tr><td style="text-align: left">Polygon (Mumbai)</td><td style="text-align: left">5</td><td style="text-align: left">80001</td><td style="text-align: left">0x0CBE91CF822c73C2315FB05100C2F714765d5c20</td></tr>
+<tr><td style="text-align: left">Avalanche (Fuji)</td><td style="text-align: left">6</td><td style="text-align: left">43113</td><td style="text-align: left">0x7bbcE28e64B3F8b84d876Ab298393c38ad7aac4C</td></tr>
+<tr><td style="text-align: left">Oasis (Emerald Testnet)</td><td style="text-align: left">7</td><td style="text-align: left">42261</td><td style="text-align: left">0xc1C338397ffA53a2Eb12A7038b4eeb34791F8aCb</td></tr>
+<tr><td style="text-align: left">Algorand (Testnet)</td><td style="text-align: left">8</td><td style="text-align: left"></td><td style="text-align: left">86525623</td></tr>
+<tr><td style="text-align: left">Aurora</td><td style="text-align: left">9</td><td style="text-align: left">1313161555</td><td style="text-align: left">0xBd07292de7b505a4E803CEe286184f7Acf908F5e</td></tr>
+<tr><td style="text-align: left">Fantom</td><td style="text-align: left">10</td><td style="text-align: left">4002</td><td style="text-align: left">0x1BB3B4119b7BA9dfad76B0545fb3F531383c3bB7</td></tr>
+<tr><td style="text-align: left">Karura</td><td style="text-align: left">11</td><td style="text-align: left">686</td><td style="text-align: left">0xE4eacc10990ba3308DdCC72d985f2a27D20c7d03</td></tr>
+<tr><td style="text-align: left">Acala</td><td style="text-align: left">12</td><td style="text-align: left">787</td><td style="text-align: left">0x4377B49d559c0a9466477195C6AdC3D433e265c0</td></tr>
+<tr><td style="text-align: left">Klaytn</td><td style="text-align: left">13</td><td style="text-align: left">1001</td><td style="text-align: left">0x1830CC6eE66c84D2F177B94D544967c774E624cA</td></tr>
+<tr><td style="text-align: left">Celo</td><td style="text-align: left">14</td><td style="text-align: left">44787</td><td style="text-align: left">0x88505117CA88e7dd2eC6EA1E13f0948db2D50D56</td></tr>
+</tbody></table>
+<h3 id="token-bridge-1"><a class="header" href="#token-bridge-1">Token Bridge</a></h3>
+<table><thead><tr><th style="text-align: left">Chain Name</th><th style="text-align: left">Wormhole Chain ID</th><th style="text-align: left">Network ID</th><th style="text-align: left">Address</th></tr></thead><tbody>
+<tr><td style="text-align: left">Solana</td><td style="text-align: left">1</td><td style="text-align: left">devnet</td><td style="text-align: left">DZnkkTmCiFWfYTfT41X3Rd1kDgozqzxWaHqsw6W4x2oe</td></tr>
+<tr><td style="text-align: left">Ethereum (Goerli)</td><td style="text-align: left">2</td><td style="text-align: left">5</td><td style="text-align: left">0xF890982f9310df57d00f659cf4fd87e65adEd8d7</td></tr>
+<tr><td style="text-align: left">Ethereum (Ropsten)</td><td style="text-align: left">10001</td><td style="text-align: left">3</td><td style="text-align: left">0xF174F9A837536C449321df1Ca093Bb96948D5386</td></tr>
+<tr><td style="text-align: left">Terra</td><td style="text-align: left">3</td><td style="text-align: left">bombay-12</td><td style="text-align: left">terra1pseddrv0yfsn76u4zxrjmtf45kdlmalswdv39a</td></tr>
+<tr><td style="text-align: left">Binance Smart Chain</td><td style="text-align: left">4</td><td style="text-align: left">97</td><td style="text-align: left">0x9dcF9D205C9De35334D646BeE44b2D2859712A09</td></tr>
+<tr><td style="text-align: left">Polygon (Mumbai)</td><td style="text-align: left">5</td><td style="text-align: left">80001</td><td style="text-align: left">0x377D55a7928c046E18eEbb61977e714d2a76472a</td></tr>
+<tr><td style="text-align: left">Avalanche (Fuji)</td><td style="text-align: left">6</td><td style="text-align: left">43113</td><td style="text-align: left">0x61E44E506Ca5659E6c0bba9b678586fA2d729756</td></tr>
+<tr><td style="text-align: left">Oasis (Emerald Testnet)</td><td style="text-align: left">7</td><td style="text-align: left">42261</td><td style="text-align: left">0x88d8004A9BdbfD9D28090A02010C19897a29605c</td></tr>
+<tr><td style="text-align: left">Algorand (Testnet)</td><td style="text-align: left">8</td><td style="text-align: left"></td><td style="text-align: left">86525641</td></tr>
+<tr><td style="text-align: left">Aurora</td><td style="text-align: left">9</td><td style="text-align: left">1313161555</td><td style="text-align: left">0xD05eD3ad637b890D68a854d607eEAF11aF456fba</td></tr>
+<tr><td style="text-align: left">Fantom</td><td style="text-align: left">10</td><td style="text-align: left">4002</td><td style="text-align: left">0x599CEa2204B4FaECd584Ab1F2b6aCA137a0afbE8</td></tr>
+<tr><td style="text-align: left">Karura</td><td style="text-align: left">11</td><td style="text-align: left">686</td><td style="text-align: left">0xd11De1f930eA1F7Dd0290Fe3a2e35b9C91AEFb37</td></tr>
+<tr><td style="text-align: left">Acala</td><td style="text-align: left">12</td><td style="text-align: left">787</td><td style="text-align: left">0xebA00cbe08992EdD08ed7793E07ad6063c807004</td></tr>
+<tr><td style="text-align: left">Klaytn</td><td style="text-align: left">13</td><td style="text-align: left">1001</td><td style="text-align: left">0xC7A13BE098720840dEa132D860fDfa030884b09A</td></tr>
+<tr><td style="text-align: left">Celo</td><td style="text-align: left">14</td><td style="text-align: left">44787</td><td style="text-align: left">0x05ca6037eC51F8b712eD2E6Fa72219FEaE74E153</td></tr>
+</tbody></table>
+<h3 id="nft-bridge-1"><a class="header" href="#nft-bridge-1">NFT Bridge</a></h3>
+<table><thead><tr><th style="text-align: left">Chain Name</th><th style="text-align: left">Wormhole Chain ID</th><th style="text-align: left">Network ID</th><th style="text-align: left">Address</th></tr></thead><tbody>
+<tr><td style="text-align: left">Solana</td><td style="text-align: left">1</td><td style="text-align: left">devnet</td><td style="text-align: left">2rHhojZ7hpu1zA91nvZmT8TqWWvMcKmmNBCr2mKTtMq4</td></tr>
+<tr><td style="text-align: left">Ethereum (Goerli)</td><td style="text-align: left">2</td><td style="text-align: left">5</td><td style="text-align: left">0xD8E4C2DbDd2e2bd8F1336EA691dBFF6952B1a6eB</td></tr>
+<tr><td style="text-align: left">Ethereum (Ropsten)</td><td style="text-align: left">10001</td><td style="text-align: left">3</td><td style="text-align: left">0x2b048Da40f69c8dc386a56705915f8E966fe1eba</td></tr>
+<tr><td style="text-align: left">Binance Smart Chain</td><td style="text-align: left">4</td><td style="text-align: left">97</td><td style="text-align: left">0xcD16E5613EF35599dc82B24Cb45B5A93D779f1EE</td></tr>
+<tr><td style="text-align: left">Polygon (Mumbai)</td><td style="text-align: left">5</td><td style="text-align: left">80001</td><td style="text-align: left">0x51a02d0dcb5e52F5b92bdAA38FA013C91c7309A9</td></tr>
+<tr><td style="text-align: left">Avalanche (Fuji)</td><td style="text-align: left">6</td><td style="text-align: left">43113</td><td style="text-align: left">0xD601BAf2EEE3C028344471684F6b27E789D9075D</td></tr>
+<tr><td style="text-align: left">Oasis (Emerald Testnet)</td><td style="text-align: left">7</td><td style="text-align: left">42261</td><td style="text-align: left">0xC5c25B41AB0b797571620F5204Afa116A44c0ebA</td></tr>
+<tr><td style="text-align: left">Aurora</td><td style="text-align: left">9</td><td style="text-align: left">1313161555</td><td style="text-align: left">0x8F399607E9BA2405D87F5f3e1B78D950b44b2e24</td></tr>
+<tr><td style="text-align: left">Fantom</td><td style="text-align: left">10</td><td style="text-align: left">4002</td><td style="text-align: left">0x63eD9318628D26BdCB15df58B53BB27231D1B227</td></tr>
+<tr><td style="text-align: left">Karura</td><td style="text-align: left">11</td><td style="text-align: left">686</td><td style="text-align: left">0x0A693c2D594292B6Eb89Cb50EFe4B0b63Dd2760D</td></tr>
+<tr><td style="text-align: left">Acala</td><td style="text-align: left">12</td><td style="text-align: left">787</td><td style="text-align: left">0x96f1335e0AcAB3cfd9899B30b2374e25a2148a6E</td></tr>
+<tr><td style="text-align: left">Klaytn</td><td style="text-align: left">13</td><td style="text-align: left">1001</td><td style="text-align: left">0x94c994fC51c13101062958b567e743f1a04432dE</td></tr>
+<tr><td style="text-align: left">Celo</td><td style="text-align: left">14</td><td style="text-align: left">44787</td><td style="text-align: left">0xaCD8190F647a31E56A656748bC30F69259f245Db</td></tr>
+</tbody></table>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rpc-nodes"><a class="header" href="#rpc-nodes">RPC Nodes</a></h1>
+<p>These RPC nodes are maintained by the Guardians to help fetch VAAs and query the Wormhole network.</p>
+<h2 id="mainnet-guardian-rpc"><a class="header" href="#mainnet-guardian-rpc">Mainnet Guardian RPC</a></h2>
+<pre><code>https://wormhole-v2-mainnet-api.certus.one
+https://wormhole.inotel.ro
+https://wormhole-v2-mainnet-api.mcf.rocks
+https://wormhole-v2-mainnet-api.chainlayer.network
+https://wormhole-v2-mainnet-api.staking.fund
+https://wormhole-v2-mainnet.01node.com
+</code></pre>
+<h2 id="testnet-guardian-rpc"><a class="header" href="#testnet-guardian-rpc">Testnet Guardian RPC</a></h2>
+<pre><code>https://wormhole-v2-testnet-api.certus.one
+</code></pre>
+<h2 id="testnet-guardian-public-key"><a class="header" href="#testnet-guardian-public-key">Testnet Guardian Public Key</a></h2>
+<pre><code>0x13947Bd48b18E53fdAeEe77F3473391aC727C638
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+    </body>
+</html>

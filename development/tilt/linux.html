@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js ayu">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Linux - Wormhole xDapp Development Book v0.1.0</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../introduction/introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Overview</li><li class="chapter-item expanded "><a href="../../dapps/0_xdappOverview.html"><strong aria-hidden="true">1.</strong> xDapps</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../dapps/1_defiBasics.html"><strong aria-hidden="true">1.1.</strong> Dapp Ecosystem Basics</a></li><li class="chapter-item expanded "><a href="../../dapps/2_crossChainInteroperability.html"><strong aria-hidden="true">1.2.</strong> Cross-Chain Interoperability</a></li><li class="chapter-item expanded "><a href="../../dapps/3_xdataxassets.html"><strong aria-hidden="true">1.3.</strong> xData &amp; xAssets</a></li><li class="chapter-item expanded "><a href="../../dapps/4_whatIsanXdapp.html"><strong aria-hidden="true">1.4.</strong> What is an xDapp?</a></li><li class="chapter-item expanded "><a href="../../dapps/5_advantages.html"><strong aria-hidden="true">1.5.</strong> Advantages of xDapps</a></li></ol></li><li class="chapter-item expanded "><a href="../../wormhole/0_wormholeOverview.html"><strong aria-hidden="true">2.</strong> Wormhole</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../wormhole/1_whatIsWormhole.html"><strong aria-hidden="true">2.1.</strong> What is Wormhole?</a></li><li class="chapter-item expanded "><a href="../../wormhole/2_architectureOverview.html"><strong aria-hidden="true">2.2.</strong> Architecture Overview</a></li><li class="chapter-item expanded "><a href="../../wormhole/3_coreLayerContracts.html"><strong aria-hidden="true">2.3.</strong> Core Layer Contracts</a></li><li class="chapter-item expanded "><a href="../../wormhole/4_vaa.html"><strong aria-hidden="true">2.4.</strong> VAA: Verified Action Approval</a></li><li class="chapter-item expanded "><a href="../../wormhole/5_guardianNetwork.html"><strong aria-hidden="true">2.5.</strong> Guardian Network</a></li><li class="chapter-item expanded "><a href="../../wormhole/6_relayers.html"><strong aria-hidden="true">2.6.</strong> Relayers</a></li><li class="chapter-item expanded "><a href="../../wormhole/7_portalTokenBridge.html"><strong aria-hidden="true">2.7.</strong> Portal xAsset Bridge</a></li><li class="chapter-item expanded "><a href="../../wormhole/8_wormchain.html"><strong aria-hidden="true">2.8.</strong> Wormchain</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">xDapp Architecture</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> xDapp Design</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Key Considerations</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Ecosystems</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.1.</strong> EVM</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.2.</strong> Solana</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.3.</strong> Cosmos</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.4.</strong> Algorand</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.3.</strong> Protocol-First Design</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.</strong> Topology</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.1.</strong> Hub &amp; Spoke</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.2.</strong> Mesh</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.5.</strong> xAssets</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.6.</strong> Relayers</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.6.1.</strong> Generic Relayers</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.6.2.</strong> Protocol-Specific Relayers</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.7.</strong> Security</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.7.1.</strong> Trust Assumptions</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.7.2.</strong> Layer 1 Risk</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.7.3.</strong> Finality Guarantees</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.8.</strong> Examples</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.8.1.</strong> Cross-Chain Dex</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.8.2.</strong> Remote Staking</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.9.</strong> Common Use Cases</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">xDapp Development</li><li class="chapter-item expanded "><a href="../../development/overview.html"><strong aria-hidden="true">4.</strong> Before You Start</a></li><li class="chapter-item expanded "><a href="../../development/wormhole-local-validator.html"><strong aria-hidden="true">5.</strong> Wormhole Local Validator</a></li><li class="chapter-item expanded "><a href="../../development/tilt/overview.html"><strong aria-hidden="true">6.</strong> Tilt Installation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../development/tilt/mac.html"><strong aria-hidden="true">6.1.</strong> MacOS</a></li><li class="chapter-item expanded "><a href="../../development/tilt/linux.html" class="active"><strong aria-hidden="true">6.2.</strong> Linux</a></li><li class="chapter-item expanded "><a href="../../development/tilt/constants.html"><strong aria-hidden="true">6.3.</strong> Constants</a></li></ol></li><li class="chapter-item expanded "><a href="../../development/scaffold/overview.html"><strong aria-hidden="true">7.</strong> Project Scaffold</a></li><li class="chapter-item expanded "><a href="../../development/messages/sending/overview.html"><strong aria-hidden="true">8.</strong> Sending Messages</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../development/messages/sending/evm.html"><strong aria-hidden="true">8.1.</strong> EVM</a></li></ol></li><li class="chapter-item expanded "><a href="../../development/messages/registration/overview.html"><strong aria-hidden="true">9.</strong> Registering xDapps</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../development/messages/registration/evm.html"><strong aria-hidden="true">9.1.</strong> EVM</a></li></ol></li><li class="chapter-item expanded "><a href="../../development/messages/relaying/overview.html"><strong aria-hidden="true">10.</strong> Relaying Messages</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">10.1.</strong> Manual Relays</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.2.</strong> REST &amp; Spy Relayer</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.3.</strong> Generic Relayers</div></li></ol></li><li class="chapter-item expanded "><a href="../../development/messages/receiving/overview.html"><strong aria-hidden="true">11.</strong> Receving Messages</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../development/messages/receiving/evm.html"><strong aria-hidden="true">11.1.</strong> EVM</a></li></ol></li><li class="chapter-item expanded "><a href="../../projects/summary.html"><strong aria-hidden="true">12.</strong> Projects</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../projects/evm-messenger/overview.html"><strong aria-hidden="true">12.1.</strong> EVM Messenger</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../projects/evm-messenger/messenger.html"><strong aria-hidden="true">12.1.1.</strong> Solidity</a></li><li class="chapter-item expanded "><a href="../../projects/evm-messenger/client.html"><strong aria-hidden="true">12.1.2.</strong> JS Client</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><li class="part-title">Portal Token Bridge</li><li class="chapter-item expanded "><a href="../../development/portal/overview.html"><strong aria-hidden="true">13.</strong> Portal</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">13.1.</strong> EVM</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../development/portal/evm/attestingToken.html"><strong aria-hidden="true">13.1.1.</strong> Attesting</a></li><li class="chapter-item expanded "><a href="../../development/portal/evm/tokenTransfer.html"><strong aria-hidden="true">13.1.2.</strong> Transfer Tokens</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">13.2.</strong> Portal JS Client Transfers</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">13.2.1.</strong> EVM to Solana Transfer</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">13.2.2.</strong> Polygon to Oasis with Relayers</div></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">14.</strong> Portal Payloads</div></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Other Resources</li><li class="chapter-item expanded "><div><strong aria-hidden="true">15.</strong> Reference</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../reference/tools.html"><strong aria-hidden="true">15.1.</strong> Tools</a></li><li class="chapter-item expanded "><a href="../../reference/github.html"><strong aria-hidden="true">15.2.</strong> Github &amp; Useful Links</a></li><li class="chapter-item expanded "><a href="../../reference/contracts.html"><strong aria-hidden="true">15.3.</strong> Deployed Contracts</a></li><li class="chapter-item expanded "><a href="../../reference/rpcnodes.html"><strong aria-hidden="true">15.4.</strong> RPC Nodes</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Wormhole xDapp Development Book v0.1.0</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/certusone/xdapp-book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="linux-devnet-setup"><a class="header" href="#linux-devnet-setup">Linux Devnet Setup</a></h1>
+<h3 id="experimental-setup-script"><a class="header" href="#experimental-setup-script">Experimental Setup Script</a></h3>
+<p>There's an experimental one command setup script that should install dependencies for you on Linux and configure everything properly. This is only recommended if you're running headless Linux and unable to use Docker Desktop, as with Docker Desktop you don't need <code>minikube</code> and can just enable Kubernetes from Docker.</p>
+<pre><code class="language-sh">curl $URL | sh install_linux.sh
+cd wormhole/
+./tilt.sh
+</code></pre>
+<h2 id="regular-setup"><a class="header" href="#regular-setup">Regular Setup</a></h2>
+<h3 id="1-install-go"><a class="header" href="#1-install-go">1. Install Go</a></h3>
+<pre><code class="language-sh">wget https://go.dev/dl/go1.18.1.linux-amd64.tar.gz
+rm -rf /usr/local/go &amp;&amp; tar -C /usr/local -xzf go1.18.1.linux-amd64.tar.gz
+</code></pre>
+<h3 id="2-install-docker"><a class="header" href="#2-install-docker">2. Install Docker</a></h3>
+<p>If you're using Linux with a window manager, consider getting Docker Desktop instead of the following command. It comes with Kubernetes built in and you won't need to download <code>minikube</code>. It's recommended to have at least 4 CPUs and 16GB RAM dedicated to Docker. </p>
+<p>Also make sure that you set up docker as a NON ROOT USER! </p>
+<p><a href="https://docs.docker.com/engine/install/ubuntu/#installation-methods">https://docs.docker.com/engine/install/ubuntu/#installation-methods</a></p>
+<h3 id="3-docker-desktop-install"><a class="header" href="#3-docker-desktop-install">3. (Docker Desktop Install)</a></h3>
+<p>Enable Kubernetes by going into Settings &gt; Kubernetes</p>
+<h3 id="3-non-docker-desktop"><a class="header" href="#3-non-docker-desktop">3. (Non Docker Desktop)</a></h3>
+<p>Install <a href="https://minikube.sigs.k8s.io/docs/start/"><code>minikube</code></a></p>
+<p>Configure minikube</p>
+<pre><code>minikube start --driver=docker --kubernetes-version=v1.23.3 --cpus=4 --memory=14G --disk-size=10G --namespace=wormhole
+</code></pre>
+<p>If you reboot your VM you'll need to run the <code>minikube start</code> command again before you bring up tilt.</p>
+<h3 id="4-install-tilt"><a class="header" href="#4-install-tilt">4. Install Tilt</a></h3>
+<p>Install tilt by copy pasting this into the Terminal</p>
+<pre><code class="language-sh">curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
+</code></pre>
+<h3 id="5-clone-the-wormhole-repo-and-start-tilt"><a class="header" href="#5-clone-the-wormhole-repo-and-start-tilt">5. Clone the Wormhole Repo and start Tilt</a></h3>
+<pre><code class="language-sh">git clone --branch dev.v2 https://github.com/certusone/wormhole.git
+</code></pre>
+<p>If you're running tilt on your machine </p>
+<pre><code class="language-sh">cd wormhole/
+tilt up
+</code></pre>
+<p>If you're running tilt in a VM, we need to pass in some extra flags to enable Tilt to listen to incoming traffic from external addresses. </p>
+<pre><code class="language-sh">cd wormhole
+tilt up --host=0.0.0.0 -- --webHost=0.0.0.0
+</code></pre>
+<p>You can now access the Tilt UI at either your <code>localhost:10350</code> or <code>vm_external_ip:10350</code>. </p>
+<p>If the VM's external IP doesn't work, check firewall and port settings to make sure your VM allows incoming traffic.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../development/tilt/mac.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../development/tilt/constants.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../development/tilt/mac.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../development/tilt/constants.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

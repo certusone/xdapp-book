@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js ayu">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Core Layer Contracts - Wormhole xDapp Development Book v0.1.0</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../introduction/introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Overview</li><li class="chapter-item expanded "><a href="../dapps/0_xdappOverview.html"><strong aria-hidden="true">1.</strong> xDapps</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dapps/1_defiBasics.html"><strong aria-hidden="true">1.1.</strong> Dapp Ecosystem Basics</a></li><li class="chapter-item expanded "><a href="../dapps/2_crossChainInteroperability.html"><strong aria-hidden="true">1.2.</strong> Cross-Chain Interoperability</a></li><li class="chapter-item expanded "><a href="../dapps/3_xdataxassets.html"><strong aria-hidden="true">1.3.</strong> xData &amp; xAssets</a></li><li class="chapter-item expanded "><a href="../dapps/4_whatIsanXdapp.html"><strong aria-hidden="true">1.4.</strong> What is an xDapp?</a></li><li class="chapter-item expanded "><a href="../dapps/5_advantages.html"><strong aria-hidden="true">1.5.</strong> Advantages of xDapps</a></li></ol></li><li class="chapter-item expanded "><a href="../wormhole/0_wormholeOverview.html"><strong aria-hidden="true">2.</strong> Wormhole</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../wormhole/1_whatIsWormhole.html"><strong aria-hidden="true">2.1.</strong> What is Wormhole?</a></li><li class="chapter-item expanded "><a href="../wormhole/2_architectureOverview.html"><strong aria-hidden="true">2.2.</strong> Architecture Overview</a></li><li class="chapter-item expanded "><a href="../wormhole/3_coreLayerContracts.html" class="active"><strong aria-hidden="true">2.3.</strong> Core Layer Contracts</a></li><li class="chapter-item expanded "><a href="../wormhole/4_vaa.html"><strong aria-hidden="true">2.4.</strong> VAA: Verified Action Approval</a></li><li class="chapter-item expanded "><a href="../wormhole/5_guardianNetwork.html"><strong aria-hidden="true">2.5.</strong> Guardian Network</a></li><li class="chapter-item expanded "><a href="../wormhole/6_relayers.html"><strong aria-hidden="true">2.6.</strong> Relayers</a></li><li class="chapter-item expanded "><a href="../wormhole/7_portalTokenBridge.html"><strong aria-hidden="true">2.7.</strong> Portal xAsset Bridge</a></li><li class="chapter-item expanded "><a href="../wormhole/8_wormchain.html"><strong aria-hidden="true">2.8.</strong> Wormchain</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">xDapp Architecture</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> xDapp Design</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Key Considerations</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Ecosystems</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.1.</strong> EVM</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.2.</strong> Solana</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.3.</strong> Cosmos</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.4.</strong> Algorand</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.3.</strong> Protocol-First Design</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.</strong> Topology</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.1.</strong> Hub &amp; Spoke</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.2.</strong> Mesh</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.5.</strong> xAssets</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.6.</strong> Relayers</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.6.1.</strong> Generic Relayers</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.6.2.</strong> Protocol-Specific Relayers</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.7.</strong> Security</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.7.1.</strong> Trust Assumptions</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.7.2.</strong> Layer 1 Risk</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.7.3.</strong> Finality Guarantees</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.8.</strong> Examples</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.8.1.</strong> Cross-Chain Dex</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.8.2.</strong> Remote Staking</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.9.</strong> Common Use Cases</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">xDapp Development</li><li class="chapter-item expanded "><a href="../development/overview.html"><strong aria-hidden="true">4.</strong> Before You Start</a></li><li class="chapter-item expanded "><a href="../development/wormhole-local-validator.html"><strong aria-hidden="true">5.</strong> Wormhole Local Validator</a></li><li class="chapter-item expanded "><a href="../development/tilt/overview.html"><strong aria-hidden="true">6.</strong> Tilt Installation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../development/tilt/mac.html"><strong aria-hidden="true">6.1.</strong> MacOS</a></li><li class="chapter-item expanded "><a href="../development/tilt/linux.html"><strong aria-hidden="true">6.2.</strong> Linux</a></li><li class="chapter-item expanded "><a href="../development/tilt/constants.html"><strong aria-hidden="true">6.3.</strong> Constants</a></li></ol></li><li class="chapter-item expanded "><a href="../development/scaffold/overview.html"><strong aria-hidden="true">7.</strong> Project Scaffold</a></li><li class="chapter-item expanded "><a href="../development/messages/sending/overview.html"><strong aria-hidden="true">8.</strong> Sending Messages</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../development/messages/sending/evm.html"><strong aria-hidden="true">8.1.</strong> EVM</a></li></ol></li><li class="chapter-item expanded "><a href="../development/messages/registration/overview.html"><strong aria-hidden="true">9.</strong> Registering xDapps</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../development/messages/registration/evm.html"><strong aria-hidden="true">9.1.</strong> EVM</a></li></ol></li><li class="chapter-item expanded "><a href="../development/messages/relaying/overview.html"><strong aria-hidden="true">10.</strong> Relaying Messages</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">10.1.</strong> Manual Relays</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.2.</strong> REST &amp; Spy Relayer</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.3.</strong> Generic Relayers</div></li></ol></li><li class="chapter-item expanded "><a href="../development/messages/receiving/overview.html"><strong aria-hidden="true">11.</strong> Receving Messages</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../development/messages/receiving/evm.html"><strong aria-hidden="true">11.1.</strong> EVM</a></li></ol></li><li class="chapter-item expanded "><a href="../projects/summary.html"><strong aria-hidden="true">12.</strong> Projects</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../projects/evm-messenger/overview.html"><strong aria-hidden="true">12.1.</strong> EVM Messenger</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../projects/evm-messenger/messenger.html"><strong aria-hidden="true">12.1.1.</strong> Solidity</a></li><li class="chapter-item expanded "><a href="../projects/evm-messenger/client.html"><strong aria-hidden="true">12.1.2.</strong> JS Client</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><li class="part-title">Portal Token Bridge</li><li class="chapter-item expanded "><a href="../development/portal/overview.html"><strong aria-hidden="true">13.</strong> Portal</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">13.1.</strong> EVM</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../development/portal/evm/attestingToken.html"><strong aria-hidden="true">13.1.1.</strong> Attesting</a></li><li class="chapter-item expanded "><a href="../development/portal/evm/tokenTransfer.html"><strong aria-hidden="true">13.1.2.</strong> Transfer Tokens</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">13.2.</strong> Portal JS Client Transfers</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">13.2.1.</strong> EVM to Solana Transfer</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">13.2.2.</strong> Polygon to Oasis with Relayers</div></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">14.</strong> Portal Payloads</div></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Other Resources</li><li class="chapter-item expanded "><div><strong aria-hidden="true">15.</strong> Reference</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../reference/tools.html"><strong aria-hidden="true">15.1.</strong> Tools</a></li><li class="chapter-item expanded "><a href="../reference/github.html"><strong aria-hidden="true">15.2.</strong> Github &amp; Useful Links</a></li><li class="chapter-item expanded "><a href="../reference/contracts.html"><strong aria-hidden="true">15.3.</strong> Deployed Contracts</a></li><li class="chapter-item expanded "><a href="../reference/rpcnodes.html"><strong aria-hidden="true">15.4.</strong> RPC Nodes</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Wormhole xDapp Development Book v0.1.0</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/certusone/xdapp-book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="core-contracts"><a class="header" href="#core-contracts">Core Contracts</a></h1>
+<p>The Wormhole Core Contracts are one of the most pivotal pieces of the Wormhole ecosystem, and serve as a great place to start when learning about how data flows through the ecosystem.</p>
+<p>There is one Core Contract on each blockchain in the ecosystem, and this is the contract which the Guardians are required to observe. The Core Contracts are the mechanism by which all Wormhole messages are emitted. All xDapps either interact directly with the Core Contract, or interact with some other contract which does.</p>
+<p>The Core Contracts are quite simple and only have a few public-facing functions.</p>
+<hr />
+<pre><code>publishMessage(
+    int nonce,
+    byte[] payload,
+    int consistencyLevel
+) returns int sequenceNumber
+</code></pre>
+<p>This is the mechanism by which Wormhole Messages are emitted.</p>
+<ul>
+<li>
+<p><strong>payload</strong> is an arbitrary byte array, and is the content of the emitted message. It may be capped to a certain maximum length due to the constraints of individual blockchains.</p>
+</li>
+<li>
+<p><strong>consistencyLevel</strong> is the number of blocks which the guardians should wait prior to emitting a VAA for this message. This number is usually either 1, or equal to the chain's finality period. This is a defense against transactions being orphaned.</p>
+</li>
+<li>
+<p><strong>nonce</strong> - on chains where batch VAAs are supported, if multiple messages in the same transaction have the same nonce, a batch VAA will be produced alongside the individual VAAs. This feature reduces gas costs and simplifies composeability.</p>
+</li>
+<li>
+<p><strong>sequenceNumber</strong> - this is a unique index number for the message. When combined with the emitter contract address and emitter chain ID, the corresponding VAA can be retrieved from a guardian network node.</p>
+</li>
+</ul>
+<p>The implementation strategy for publishMessage differs by chain. However, the general strategy is that the Core Contract will post the emitterAddress (the contract which called publishMessage), sequenceNumber, and consistencyLevel into the blockchain logs. Once the desired consistencyLevel has elapsed, the Guardian Network will produce the requested VAAs.</p>
+<p>Currently there are no fees to publish a message, except when publishing on Solana. This is not guaranteed to always be the case, however.</p>
+<hr />
+<p>Second, we have 'receiving' side of the Core contract.</p>
+<pre><code>parseAndVerifyVAA( byte[] VAA )
+</code></pre>
+<p>This function, when passed a VAA, will either return the payload and associated metadata for the VAA, or throw an exception. An exception should only ever throw if the VAA fails signature verification, which would indicate that the VAA is invalid or inauthentic in some form.</p>
+<hr />
+<h2 id="multicasting"><a class="header" href="#multicasting">Multicasting</a></h2>
+<p>Let's take a moment to point out that there is no inclusion of any destination address or chain in these functions.</p>
+<p>VAAs simply attest that &quot;This contract on this chain said this thing&quot;. Therefore, VAAs are multicast by default, and will be verified as authentic on any chain they are brought to.</p>
+<p>This multicast-by-default model is intentional, and also integral to the design. Having this multicast capacity makes it easy to synchronize state across the entire ecosystem, because a single blockchain can make its data available to every chain in a single action with low latency. This, in turn, reduces the complexity of the n^2 problems encountered by routing data to a large number of blockchains.</p>
+<p>Use cases where the message has an intended recipient or is only meant to be consumed once must be handled in logic outside the Core Contract. There are standard practices for accomplishing these features shown later on in the code examples, and some ecosystem contracts (namely Portal &amp; the Relaying contract) handle this on behalf of downstream consumers.</p>
+<p>Lastly, because the VAA creation is a separate concern from relaying, there is <em>no additional cost</em> to this multicast model when a single chain is being targetted. If the data isn't needed on a certain blockchain, don't relay it there, and it won't cost anything.</p>
+<p>In the next section we'll dive into the technical specfications of the VAA.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../wormhole/2_architectureOverview.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../wormhole/4_vaa.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../wormhole/2_architectureOverview.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../wormhole/4_vaa.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
